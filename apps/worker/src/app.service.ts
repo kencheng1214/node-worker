@@ -7,8 +7,8 @@ export class AppService {
     const context: ExecutionContext = {};
 
     console.log(JSON.stringify(specification, null, 2));
-    for (const _ of specification.pipeline) {
-      const execute = {} as Executable;
+    for (const step of specification.pipeline) {
+      console.log(step);
 
       // await execute.execute(context);
     }
