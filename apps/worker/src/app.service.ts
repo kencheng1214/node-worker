@@ -10,7 +10,7 @@ export class AppService {
     for (const _ of specification.pipeline) {
       const execute = {} as Executable;
 
-      await execute.execute(context);
+      // await execute.execute(context);
     }
   }
 }
