@@ -1,18 +1,16 @@
-import { readFile } from 'node:fs/promises';
 import { Injectable } from '@nestjs/common';
-import { Executable, ExecutionContext, SpecificationSchema } from './app.interface';
+import { Executable, ExecutionContext, Specification } from './app.interface';
 
 @Injectable()
 export class AppService {
-  async run(file: string) {
-    const specification = SpecificationSchema.parse(await readFile(file));
+  async run(specification: Specification) {
     const context: ExecutionContext = {};
 
     console.log(JSON.stringify(specification, null, 2));
-    for (const executable of specification.pipeline) {
-      const service = {} as Executable;
+    for (const _ of specification.pipeline) {
+      const execute = {} as Executable;
 
-      service.execute(context);
+      await execute.execute(context);
     }
   }
 }
