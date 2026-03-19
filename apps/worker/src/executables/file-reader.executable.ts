@@ -1,5 +1,5 @@
+import { createReadStream } from 'node:fs';
 import { Injectable } from '@nestjs/common';
-import { createReadStream } from 'fs';
 import split2 from 'split2';
 import { Executable, ExecutionContext } from '../app.interface';
 
