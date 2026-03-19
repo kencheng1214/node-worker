@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.createApplicationContext(AppModule);
   const service = app.get(AppService);
 
-  service.run();
+  await service.run('foobar.json');
   await app.close();
 }
 bootstrap();
