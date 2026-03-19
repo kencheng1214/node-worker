@@ -9,8 +9,6 @@ export class AppService {
     console.log(JSON.stringify(specification, null, 2));
     for (const step of specification.pipeline) {
       console.log(step);
-
-      // await execute.execute(context);
     }
   }
 }

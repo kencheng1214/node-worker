@@ -1,4 +1,4 @@
-import { Executable, ExecutionContext } from '../app.interface';
+import { Executable, ExecutionContext } from './app.interface';
 
 export class FilePoller implements Executable {
   constructor(options?: {}) {}
