@@ -10,7 +10,7 @@ export class FileReader implements Executable {
     context: ExecutionContext,
     options: {
       path: string;
-      parser?: 'line' | 'csv';
+      parser?: 'plain' | 'csv';
     },
   ) {
     const parser = (() => {

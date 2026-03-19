@@ -13,7 +13,7 @@ export const FileReaderSchema = z.object({
   name: z.literal('FileReader'),
   options: z.object({
     path: z.string(),
-    parser: z.enum(['line', 'csv']).optional(),
+    parser: z.enum(['plain', 'csv']).optional(),
   }),
 });
 
