@@ -1,7 +1,7 @@
 import { Executable, ExecutionContext } from './app.interface';
 
 export class FilePoller implements Executable {
-  constructor(options?: {}) {}
+  constructor(private readonly options?: {}) {}
 
   execute(context: ExecutionContext) {}
 }
