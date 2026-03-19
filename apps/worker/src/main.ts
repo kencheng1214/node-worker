@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.createApplicationContext(AppModule);
   const service = app.get(AppService);
 
-  await service.run({ pipeline: [{ name: 'FilePoller', options: { path: 'foobar.txt' } }] });
+  await service.run({ pipeline: [{ name: 'FilePoller', options: { path: 'package.json' } }] });
   await app.close();
 }
 bootstrap();
