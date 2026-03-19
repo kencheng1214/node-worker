@@ -15,7 +15,7 @@ export class FileReader implements Executable {
     if (!context.path) throw new Error();
 
     const parser = (() => {
-      switch (options.parser) {
+      switch (options?.parser) {
         case 'csv':
           return parse();
         default:
