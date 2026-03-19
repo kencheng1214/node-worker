@@ -16,7 +16,6 @@ export class AppService {
       const executable = this.moduleRef.get<Executable>(step.name);
 
       await executable.execute(context, step.options);
-      this.logger.debug(context);
     }
   }
 }
