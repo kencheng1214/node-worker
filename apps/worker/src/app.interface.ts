@@ -17,7 +17,11 @@ export const FileReaderSchema = z.object({
 
 export const CsvParserSchema = z.object({
   name: z.literal('CsvParser'),
-  options: z.object().optional(),
+  options: z
+    .object({
+      columns: z.union([z.boolean(), z.array(z.string())]).optional(),
+    })
+    .optional(),
 });
 
 export const OracleLoaderSchema = z.object({

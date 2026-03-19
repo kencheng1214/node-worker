@@ -10,7 +10,7 @@ async function bootstrap() {
     pipeline: [
       { name: 'FilePresenceChecker', options: { file: 'timezone.csv' } },
       { name: 'FileReader', options: { path: 'timezone.csv' } },
-      { name: 'CsvParser' },
+      { name: 'CsvParser', options: { columns: true } },
       { name: 'OracleLoader' },
     ],
   });
