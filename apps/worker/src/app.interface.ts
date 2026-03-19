@@ -17,22 +17,13 @@ export const FileReaderSchema = z.object({
   }),
 });
 
-export const FileWriterSchema = z.object({
-  name: z.literal('FileWriter'),
-  options: z.object({
-    path: z.string(),
-  }),
-});
-
 export const SpecificationSchema = z.object({
-  pipeline: z.array(z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema, FileWriterSchema])),
+  pipeline: z.array(z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema])),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;
 
 export interface ExecutionContext {
-  path?: string;
-  readStream?: Readable;
   [key: string]: any;
 }
 
