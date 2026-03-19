@@ -11,5 +11,5 @@ export interface ExecutionContext {
 }
 
 export interface Executable {
-  execute(context: ExecutionContext): void | Promise<void>;
+  execute(context: ExecutionContext, options?: Record<string, any>): void | Promise<void>;
 }
