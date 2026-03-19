@@ -12,12 +12,16 @@ export const FileReaderSchema = z.object({
   name: z.literal('FileReader'),
   options: z.object({
     path: z.string(),
-    format: z.enum(['plain', 'csv']).optional(),
   }),
 });
 
+export const CsvParserSchema = z.object({
+  name: z.literal('CsvParser'),
+  options: z.object().optional(),
+});
+
 export const SpecificationSchema = z.object({
-  pipeline: z.array(z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema])),
+  pipeline: z.array(z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema, CsvParserSchema])),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;
