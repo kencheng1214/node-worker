@@ -11,11 +11,15 @@ export const FilePollerSchema = z.object({
 
 export const FileReaderSchema = z.object({
   name: z.literal('FileReader'),
-  options: z.object().optional(),
+  options: z
+    .object({
+      parser: z.enum(['line', 'csv']).optional(),
+    })
+    .optional(),
 });
 
 export const SpecificationSchema = z.object({
-  pipeline: z.array(z.discriminatedUnion('name', [FilePollerSchema, FileReaderSchema])).default([]),
+  pipeline: z.array(z.discriminatedUnion('name', [FilePollerSchema, FileReaderSchema])),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;

@@ -7,7 +7,10 @@ async function bootstrap() {
   const service = app.get(AppService);
 
   await service.run({
-    pipeline: [{ name: 'FilePoller', options: { path: 'package.json' } }, { name: 'FileReader' }],
+    pipeline: [
+      { name: 'FilePoller', options: { path: 'package.json' } },
+      { name: 'FileReader', options: { parser: 'line' } },
+    ],
   });
   await app.close();
 }
