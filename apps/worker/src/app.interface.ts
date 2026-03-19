@@ -1,3 +1,4 @@
+import { Readable } from 'stream';
 import { z } from 'zod';
 
 export const FilePollerSchema = z.object({
@@ -20,6 +21,8 @@ export const SpecificationSchema = z.object({
 export type Specification = z.infer<typeof SpecificationSchema>;
 
 export interface ExecutionContext {
+  path?: string;
+  readStream?: Readable;
   [key: string]: any;
 }
 
