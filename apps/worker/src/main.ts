@@ -8,7 +8,7 @@ async function bootstrap() {
 
   await service.run({
     pipeline: [
-      { name: 'FilePresenceChecker', options: { path: 'timezone.csv' } },
+      { name: 'FilePresenceChecker', options: { file: 'timezone.csv' } },
       { name: 'FileReader', options: { path: 'timezone.csv' } },
       { name: 'CsvParser' },
     ],

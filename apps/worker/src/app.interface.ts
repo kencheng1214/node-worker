@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const FilePresenceCheckerSchema = z.object({
   name: z.literal('FilePresenceChecker'),
   options: z.object({
-    path: z.string(),
+    file: z.string(),
     retries: z.number().optional(),
   }),
 });
