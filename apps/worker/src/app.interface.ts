@@ -1,8 +1,8 @@
 import { Readable } from 'stream';
 import { z } from 'zod';
 
-export const FilePollerSchema = z.object({
-  name: z.literal('FilePoller'),
+export const FilePresenceCheckerSchema = z.object({
+  name: z.literal('FilePresenceChecker'),
   options: z.object({
     path: z.string(),
     retries: z.number().optional(),
@@ -19,7 +19,7 @@ export const FileReaderSchema = z.object({
 });
 
 export const SpecificationSchema = z.object({
-  pipeline: z.array(z.discriminatedUnion('name', [FilePollerSchema, FileReaderSchema])),
+  pipeline: z.array(z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema])),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;

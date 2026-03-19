@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
-import { FilePoller } from './executables/file-poller.executable';
+import { FilePresenceChecker } from './executables/file-presence-checker.executable';
 import { FileReader } from './executables/file-reader.executable';
 
 @Module({
   providers: [
     AppService,
     {
-      provide: FilePoller.name,
-      useClass: FilePoller,
+      provide: FilePresenceChecker.name,
+      useClass: FilePresenceChecker,
     },
     {
       provide: FileReader.name,

@@ -4,11 +4,10 @@ import pRetry from 'p-retry';
 import { Executable, ExecutionContext } from '../app.interface';
 
 @Injectable()
-export class FilePoller implements Executable {
-  private readonly logger = new Logger(FilePoller.name);
+export class FilePresenceChecker implements Executable {
+  private readonly logger = new Logger(FilePresenceChecker.name);
 
   async execute(context: ExecutionContext, options: { path: string; retries?: number }) {
     await pRetry(() => access(options.path), { retries: options.retries ?? 0 });
-    context.path = options.path;
   }
 }
