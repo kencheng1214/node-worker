@@ -8,8 +8,13 @@ export const FilePollerSchema = z.object({
   }),
 });
 
+export const FileReaderSchema = z.object({
+  name: z.literal('FileReader'),
+  options: z.object().optional(),
+});
+
 export const SpecificationSchema = z.object({
-  pipeline: z.array(z.discriminatedUnion('name', [FilePollerSchema])).default([]),
+  pipeline: z.array(z.discriminatedUnion('name', [FilePollerSchema, FileReaderSchema])).default([]),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;

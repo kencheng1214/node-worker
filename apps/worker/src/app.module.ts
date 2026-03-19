@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
 import { FilePoller } from './executables/file-poller.executable';
+import { FileReader } from './executables/file-reader.executable';
 
 @Module({
   providers: [
@@ -8,6 +9,10 @@ import { FilePoller } from './executables/file-poller.executable';
     {
       provide: FilePoller.name,
       useClass: FilePoller,
+    },
+    {
+      provide: FileReader.name,
+      useClass: FileReader,
     },
   ],
 })

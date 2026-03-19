@@ -9,5 +9,6 @@ export class FilePoller implements Executable {
 
   async execute(context: ExecutionContext, options: { path: string; retries?: number }) {
     await pRetry(() => access(options.path), { retries: options.retries ?? 0 });
+    context.path = options.path;
   }
 }

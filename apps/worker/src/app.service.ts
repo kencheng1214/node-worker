@@ -1,9 +1,11 @@
 import { ModuleRef } from '@nestjs/core';
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { Executable, ExecutionContext, Specification } from './app.interface';
 
 @Injectable()
 export class AppService {
+  private readonly logger = new Logger(AppService.name);
+
   constructor(private readonly moduleRef: ModuleRef) {}
 
   async run(specification: Specification) {
@@ -14,6 +16,7 @@ export class AppService {
       const executable = this.moduleRef.get<Executable>(step.name);
 
       await executable.execute(context, step.options);
+      this.logger.debug(context);
     }
   }
 }
