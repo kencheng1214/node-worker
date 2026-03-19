@@ -10,6 +10,7 @@ async function bootstrap() {
     pipeline: [
       { name: 'FilePresenceChecker', options: { path: 'package.json' } },
       { name: 'FileReader', options: { path: 'package.json' } },
+      { name: 'FileWriter', options: { path: 'package2.json' } },
     ],
   });
   await app.close();

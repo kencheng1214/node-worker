@@ -13,12 +13,19 @@ export const FileReaderSchema = z.object({
   name: z.literal('FileReader'),
   options: z.object({
     path: z.string(),
-    parser: z.enum(['plain', 'csv']).optional(),
+    format: z.enum(['plain', 'csv']).optional(),
+  }),
+});
+
+export const FileWriterSchema = z.object({
+  name: z.literal('FileWriter'),
+  options: z.object({
+    path: z.string(),
   }),
 });
 
 export const SpecificationSchema = z.object({
-  pipeline: z.array(z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema])),
+  pipeline: z.array(z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema, FileWriterSchema])),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;
