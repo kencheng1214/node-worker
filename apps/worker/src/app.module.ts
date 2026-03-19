@@ -3,6 +3,7 @@ import { AppService } from './app.service';
 import { CsvParser } from './executables/csv-parser.executable';
 import { FilePresenceChecker } from './executables/file-presence-checker.executable';
 import { FileReader } from './executables/file-reader.executable';
+import { OracleLoader } from './executables/oracle-loader.executable';
 
 @Module({
   providers: [
@@ -18,6 +19,10 @@ import { FileReader } from './executables/file-reader.executable';
     {
       provide: CsvParser.name,
       useClass: CsvParser,
+    },
+    {
+      provide: OracleLoader.name,
+      useClass: OracleLoader,
     },
   ],
 })

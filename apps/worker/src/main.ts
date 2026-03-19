@@ -11,6 +11,7 @@ async function bootstrap() {
       { name: 'FilePresenceChecker', options: { file: 'timezone.csv' } },
       { name: 'FileReader', options: { path: 'timezone.csv' } },
       { name: 'CsvParser' },
+      { name: 'OracleLoader' },
     ],
   });
   await app.close();

@@ -20,8 +20,15 @@ export const CsvParserSchema = z.object({
   options: z.object().optional(),
 });
 
+export const OracleLoaderSchema = z.object({
+  name: z.literal('OracleLoader'),
+  options: z.object().optional(),
+});
+
 export const SpecificationSchema = z.object({
-  pipeline: z.array(z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema, CsvParserSchema])),
+  pipeline: z.array(
+    z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema, CsvParserSchema, OracleLoaderSchema]),
+  ),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;
