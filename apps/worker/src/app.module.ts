@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
-import { FilePoller } from './file-poller';
+import { FilePoller } from './executables/file-poller.executable';
 
 @Module({
   providers: [

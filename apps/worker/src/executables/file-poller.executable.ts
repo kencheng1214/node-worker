@@ -1,7 +1,7 @@
 import { access } from 'node:fs/promises';
 import { Injectable, Logger } from '@nestjs/common';
 import pRetry from 'p-retry';
-import { Executable, ExecutionContext } from './app.interface';
+import { Executable, ExecutionContext } from '../app.interface';
 
 @Injectable()
 export class FilePoller implements Executable {
