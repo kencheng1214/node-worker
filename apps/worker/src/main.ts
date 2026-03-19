@@ -9,7 +9,7 @@ async function bootstrap() {
   await service.run({
     pipeline: [
       { name: 'FilePresenceChecker', options: { path: 'package.json' } },
-      { name: 'FileReader', options: { parser: 'line' } },
+      { name: 'FileReader', options: { path: 'package.json' } },
     ],
   });
   await app.close();

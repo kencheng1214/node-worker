@@ -11,11 +11,10 @@ export const FilePresenceCheckerSchema = z.object({
 
 export const FileReaderSchema = z.object({
   name: z.literal('FileReader'),
-  options: z
-    .object({
-      parser: z.enum(['line', 'csv']).optional(),
-    })
-    .optional(),
+  options: z.object({
+    path: z.string(),
+    parser: z.enum(['line', 'csv']).optional(),
+  }),
 });
 
 export const SpecificationSchema = z.object({

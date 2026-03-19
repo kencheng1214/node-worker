@@ -8,12 +8,11 @@ import { Executable, ExecutionContext } from '../app.interface';
 export class FileReader implements Executable {
   execute(
     context: ExecutionContext,
-    options?: {
+    options: {
+      path: string;
       parser?: 'line' | 'csv';
     },
   ) {
-    if (!context.path) throw new Error();
-
     const parser = (() => {
       switch (options?.parser) {
         case 'csv':
@@ -23,6 +22,6 @@ export class FileReader implements Executable {
       }
     })();
 
-    context.readStream = createReadStream(context.path).pipe(parser);
+    context.readStream = createReadStream(options.path).pipe(parser);
   }
 }
