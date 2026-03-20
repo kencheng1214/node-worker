@@ -1,8 +1,6 @@
-import { writeFile } from 'node:fs/promises';
 import { ModuleRef } from '@nestjs/core';
 import { Injectable, Logger } from '@nestjs/common';
 import { Executable, ExecutionContext, Specification } from './app.interface';
-import { buffer } from './utils/stream.util';
 
 @Injectable()
 export class AppService {
@@ -19,9 +17,5 @@ export class AppService {
 
       await executable.execute(context, step.options);
     }
-
-    let index = 0;
-    for await (const chunk of context.readStream.pipe(buffer({ size: 250 })))
-      await writeFile(`timezone.txt.${++index}`, chunk);
   }
 }

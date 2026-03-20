@@ -43,6 +43,11 @@ export const FileWriterSchema = z.object({
   name: z.literal('FileWriter'),
   options: z.object({
     path: z.string(),
+    buffer: z
+      .object({
+        size: z.number().optional(),
+      })
+      .optional(),
   }),
 });
 
