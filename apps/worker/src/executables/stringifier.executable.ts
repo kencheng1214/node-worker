@@ -1,3 +1,4 @@
+import { EOL } from 'node:os';
 import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import Handlebars from 'handlebars';
@@ -10,7 +11,7 @@ export class Stringifier implements Executable {
 
     context.readStream = context.readStream.pipe(
       Transform.from(async function* (source: AsyncIterable<Buffer>) {
-        for await (const value of source) yield template?.(value) ?? JSON.stringify(value);
+        for await (const value of source) yield (template?.(value) ?? JSON.stringify(value)) + EOL;
       }),
     );
   }

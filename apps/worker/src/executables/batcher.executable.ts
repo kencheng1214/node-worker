@@ -1,4 +1,3 @@
-import { EOL } from 'node:os';
 import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import { Executable, ExecutionContext } from '../app.interface';
@@ -6,7 +5,6 @@ import { Executable, ExecutionContext } from '../app.interface';
 @Injectable()
 export class Batcher implements Executable {
   execute(context: ExecutionContext, options?: { size?: number }) {
-    const EOL_BUFFER = Buffer.from(EOL);
     const size = options?.size ?? 0;
 
     context.readStream = context.readStream.pipe(
@@ -14,7 +12,7 @@ export class Batcher implements Executable {
         let buffer: Buffer[] = [];
 
         for await (const line of lines) {
-          const chunk = Buffer.concat([Buffer.from(line), EOL_BUFFER]);
+          const chunk = Buffer.from(line);
 
           if (size <= 0) {
             yield chunk;
