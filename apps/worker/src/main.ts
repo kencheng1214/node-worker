@@ -10,7 +10,8 @@ async function bootstrap() {
     pipeline: [
       { name: 'FilePresenceChecker', options: { file: 'timezone.csv' } },
       { name: 'FileReader', options: { path: 'timezone.csv' } },
-      { name: 'CsvParser', options: { columns: true } },
+      { name: 'CsvParser', options: { columns: true, trim: { end: 56 } } },
+      { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
       { name: 'OracleLoader' },
     ],
   });

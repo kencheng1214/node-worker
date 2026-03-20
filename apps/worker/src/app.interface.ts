@@ -20,13 +20,23 @@ export const CsvParserSchema = z.object({
   options: z
     .object({
       columns: z.union([z.boolean(), z.array(z.string())]).optional(),
+      trim: z
+        .object({
+          start: z.number().optional(),
+          end: z.number().optional(),
+        })
+        .optional(),
     })
     .optional(),
 });
 
 export const StringifierSchema = z.object({
   name: z.literal('Stringifier'),
-  options: z.object().optional(),
+  options: z
+    .object({
+      format: z.string().optional(),
+    })
+    .optional(),
 });
 
 export const OracleLoaderSchema = z.object({
