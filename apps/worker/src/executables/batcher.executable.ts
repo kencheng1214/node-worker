@@ -1,13 +1,13 @@
 import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
-import { Executable, ExecutionContext } from '../app.interface';
+import { Executable } from '../app.interface';
 
 @Injectable()
 export class Batcher implements Executable {
-  execute(context: ExecutionContext, options?: { size?: number }) {
+  execute(input: any, options?: { size?: number }) {
     const size = options?.size ?? 0;
 
-    context.readStream = context.readStream.pipe(
+    return input.pipe(
       Transform.from(async function* (source: AsyncIterable<Buffer>) {
         let buffer: Buffer[] = [];
 

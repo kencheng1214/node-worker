@@ -3,11 +3,11 @@ import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import pumpify from 'pumpify';
 import split from 'split2';
-import { Executable, ExecutionContext } from '../app.interface';
+import { Executable } from '../app.interface';
 
 @Injectable()
 export class Trimmer implements Executable {
-  execute(context: ExecutionContext, options?: { start?: number; end?: number }) {
+  execute(input: any, options?: { start?: number; end?: number }) {
     const EOL_BUFFER = Buffer.from(EOL);
     const { start = 0, end = 0 } = options ?? {};
     const writable = split((string) => Buffer.from(string));
@@ -23,6 +23,6 @@ export class Trimmer implements Executable {
       }
     });
 
-    context.readStream = context.readStream.pipe(pumpify(writable, readable));
+    return input.pipe(pumpify(writable, readable));
   }
 }
