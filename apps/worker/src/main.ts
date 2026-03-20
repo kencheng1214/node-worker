@@ -12,10 +12,9 @@ async function bootstrap() {
       { name: 'Trimmer', options: { end: 56 } },
       { name: 'CsvParser', options: { columns: true } },
       { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
-      { name: 'Batcher', options: { size: 200 } },
       { name: 'Inspector' },
       { name: 'Packer' },
-      { name: 'FileWriter', options: { path: '' } },
+      { name: 'FileWriter', options: { path: 'timezone.txt' } },
     ],
   });
   await app.close();
