@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { ArchiverSchema } from './executables/archiver.schema';
 import { BatcherSchema } from './executables/batcher.schema';
+import { BroadcasterSchema } from './executables/broadcaster.schema';
 import { CsvParserSchema } from './executables/csv-parser.schema';
 import { FileReaderSchema } from './executables/file-reader.schema';
 import { FileWriterSchema } from './executables/file-writer.schema';
@@ -18,6 +19,7 @@ export const TRANSFORM = [
   StringifierSchema,
   BatcherSchema,
   PackerSchema,
+  BroadcasterSchema,
   InspectorSchema,
 ] as const;
 
