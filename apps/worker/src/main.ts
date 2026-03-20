@@ -12,6 +12,7 @@ async function bootstrap() {
       { name: 'FileReader', options: { path: 'timezone.csv', trim: { end: 56 } } },
       { name: 'CsvParser', options: { columns: true } },
       { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
+      { name: 'Batcher', options: { size: 100 } },
       { name: 'FileWriter', options: { path: 'timezone.txt' } },
     ],
   });
