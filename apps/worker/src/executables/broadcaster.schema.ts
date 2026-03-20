@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const BroadcasterSchema = z.object({
   name: z.literal('Broadcaster'),
-  options: z.object().optional(),
+  options: z.object(),
 });
 
 export type BroadcasterStep = z.infer<typeof BroadcasterSchema>;
