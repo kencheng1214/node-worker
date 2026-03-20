@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
+import { Archiver } from './executables/archiver.executable';
 import { Batcher } from './executables/batcher.executable';
 import { CsvParser } from './executables/csv-parser.executable';
 import { FilePresenceChecker } from './executables/file-presence-checker.executable';
@@ -30,6 +31,10 @@ import { Stringifier } from './executables/stringifier.executable';
     {
       provide: Batcher.name,
       useClass: Batcher,
+    },
+    {
+      provide: Archiver.name,
+      useClass: Archiver,
     },
     {
       provide: FileWriter.name,
