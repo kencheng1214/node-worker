@@ -9,6 +9,7 @@ async function bootstrap() {
   await service.run({
     pipeline: [
       { name: 'FileReader', options: { path: 'timezone.csv' } },
+      { name: 'Trimmer', options: { end: 56 } },
       { name: 'CsvParser', options: { columns: true } },
       { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
       { name: 'Inspector' },
