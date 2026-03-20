@@ -7,6 +7,7 @@ import { FileReader } from './executables/file-reader.executable';
 import { FileWriter } from './executables/file-writer.executable';
 import { Inspector } from './executables/inspector.executable';
 import { Packer } from './executables/packer.executable';
+import { StdoutWriter } from './executables/stdout-writer.executable';
 import { Stringifier } from './executables/stringifier.executable';
 import { Trimmer } from './executables/trimmer.executable';
 
@@ -36,6 +37,10 @@ import { Trimmer } from './executables/trimmer.executable';
     {
       provide: Packer.name,
       useClass: Packer,
+    },
+    {
+      provide: StdoutWriter.name,
+      useClass: StdoutWriter,
     },
     {
       provide: Archiver.name,

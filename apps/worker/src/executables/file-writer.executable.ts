@@ -11,7 +11,5 @@ export class FileWriter implements Executable {
     let index = 0;
 
     for await (const chunk of input) await writeFile(template({ index: ++index }), chunk);
-
-    return input;
   }
 }

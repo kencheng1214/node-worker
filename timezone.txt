@@ -1,0 +1,425 @@
+The timezone of Abidjan is Africa/Abidjan
+The timezone of Accra is Africa/Accra
+The timezone of Addis Ababa is Africa/Addis_Ababa
+The timezone of Algiers is Africa/Algiers
+The timezone of Asmara is Africa/Asmara
+The timezone of Bamako is Africa/Bamako
+The timezone of Bangui is Africa/Bangui
+The timezone of Banjul is Africa/Banjul
+The timezone of Bissau is Africa/Bissau
+The timezone of Blantyre is Africa/Blantyre
+The timezone of Brazzaville is Africa/Brazzaville
+The timezone of Bujumbura is Africa/Bujumbura
+The timezone of Cairo is Africa/Cairo
+The timezone of Casablanca is Africa/Casablanca
+The timezone of Ceuta is Africa/Ceuta
+The timezone of Conakry is Africa/Conakry
+The timezone of Dakar is Africa/Dakar
+The timezone of Dar es Salaam is Africa/Dar_es_Salaam
+The timezone of Djibouti is Africa/Djibouti
+The timezone of Douala is Africa/Douala
+The timezone of El Aaiun is Africa/El_Aaiun
+The timezone of Freetown is Africa/Freetown
+The timezone of Gaborone is Africa/Gaborone
+The timezone of Harare is Africa/Harare
+The timezone of Johannesburg is Africa/Johannesburg
+The timezone of Juba is Africa/Juba
+The timezone of Kampala is Africa/Kampala
+The timezone of Khartoum is Africa/Khartoum
+The timezone of Kigali is Africa/Kigali
+The timezone of Kinshasa is Africa/Kinshasa
+The timezone of Lagos is Africa/Lagos
+The timezone of Libreville is Africa/Libreville
+The timezone of Lome is Africa/Lome
+The timezone of Luanda is Africa/Luanda
+The timezone of Lubumbashi is Africa/Lubumbashi
+The timezone of Lusaka is Africa/Lusaka
+The timezone of Malabo is Africa/Malabo
+The timezone of Maputo is Africa/Maputo
+The timezone of Maseru is Africa/Maseru
+The timezone of Mbabane is Africa/Mbabane
+The timezone of Mogadishu is Africa/Mogadishu
+The timezone of Monrovia is Africa/Monrovia
+The timezone of Nairobi is Africa/Nairobi
+The timezone of Ndjamena is Africa/Ndjamena
+The timezone of Niamey is Africa/Niamey
+The timezone of Nouakchott is Africa/Nouakchott
+The timezone of Ouagadougou is Africa/Ouagadougou
+The timezone of Porto-Novo is Africa/Porto-Novo
+The timezone of Sao Tome is Africa/Sao_Tome
+The timezone of Tripoli is Africa/Tripoli
+The timezone of Tunis is Africa/Tunis
+The timezone of Windhoek is Africa/Windhoek
+The timezone of Adak is America/Adak
+The timezone of Anchorage is America/Anchorage
+The timezone of Anguilla is America/Anguilla
+The timezone of Antigua is America/Antigua
+The timezone of Araguaina is America/Araguaina
+The timezone of Argentina - Buenos Aires is America/Argentina/Buenos_Aires
+The timezone of Argentina - Catamarca is America/Argentina/Catamarca
+The timezone of Argentina - Cordoba is America/Argentina/Cordoba
+The timezone of Argentina - Jujuy is America/Argentina/Jujuy
+The timezone of Argentina - La Rioja is America/Argentina/La_Rioja
+The timezone of Argentina - Mendoza is America/Argentina/Mendoza
+The timezone of Argentina - Rio Gallegos is America/Argentina/Rio_Gallegos
+The timezone of Argentina - Salta is America/Argentina/Salta
+The timezone of Argentina - San Juan is America/Argentina/San_Juan
+The timezone of Argentina - San Luis is America/Argentina/San_Luis
+The timezone of Argentina - Tucuman is America/Argentina/Tucuman
+The timezone of Argentina - Ushuaia is America/Argentina/Ushuaia
+The timezone of Aruba is America/Aruba
+The timezone of Asuncion is America/Asuncion
+The timezone of Atikokan is America/Atikokan
+The timezone of Bahia is America/Bahia
+The timezone of Bahia Banderas is America/Bahia_Banderas
+The timezone of Barbados is America/Barbados
+The timezone of Belem is America/Belem
+The timezone of Belize is America/Belize
+The timezone of Blanc-Sablon is America/Blanc-Sablon
+The timezone of Boa Vista is America/Boa_Vista
+The timezone of Bogota is America/Bogota
+The timezone of Boise is America/Boise
+The timezone of Cambridge Bay is America/Cambridge_Bay
+The timezone of Campo Grande is America/Campo_Grande
+The timezone of Cancun is America/Cancun
+The timezone of Caracas is America/Caracas
+The timezone of Cayenne is America/Cayenne
+The timezone of Cayman is America/Cayman
+The timezone of Chicago is America/Chicago
+The timezone of Chihuahua is America/Chihuahua
+The timezone of Costa Rica is America/Costa_Rica
+The timezone of Creston is America/Creston
+The timezone of Cuiaba is America/Cuiaba
+The timezone of Curacao is America/Curacao
+The timezone of Danmarkshavn is America/Danmarkshavn
+The timezone of Dawson is America/Dawson
+The timezone of Dawson Creek is America/Dawson_Creek
+The timezone of Denver is America/Denver
+The timezone of Detroit is America/Detroit
+The timezone of Dominica is America/Dominica
+The timezone of Edmonton is America/Edmonton
+The timezone of Eirunepe is America/Eirunepe
+The timezone of El Salvador is America/El_Salvador
+The timezone of Fortaleza is America/Fortaleza
+The timezone of Fort Nelson is America/Fort_Nelson
+The timezone of Glace Bay is America/Glace_Bay
+The timezone of Godthab is America/Godthab
+The timezone of Goose Bay is America/Goose_Bay
+The timezone of Grand Turk is America/Grand_Turk
+The timezone of Grenada is America/Grenada
+The timezone of Guadeloupe is America/Guadeloupe
+The timezone of Guatemala is America/Guatemala
+The timezone of Guayaquil is America/Guayaquil
+The timezone of Guyana is America/Guyana
+The timezone of Halifax is America/Halifax
+The timezone of Havana is America/Havana
+The timezone of Hermosillo is America/Hermosillo
+The timezone of Indiana - Indianapolis is America/Indiana/Indianapolis
+The timezone of Indiana - Knox is America/Indiana/Knox
+The timezone of Indiana - Marengo is America/Indiana/Marengo
+The timezone of Indiana - Petersburg is America/Indiana/Petersburg
+The timezone of Indiana - Tell City is America/Indiana/Tell_City
+The timezone of Indiana - Vevay is America/Indiana/Vevay
+The timezone of Indiana - Vincennes is America/Indiana/Vincennes
+The timezone of Indiana - Winamac is America/Indiana/Winamac
+The timezone of Inuvik is America/Inuvik
+The timezone of Iqaluit is America/Iqaluit
+The timezone of Jamaica is America/Jamaica
+The timezone of Juneau is America/Juneau
+The timezone of Kentucky - Louisville is America/Kentucky/Louisville
+The timezone of Kentucky - Monticello is America/Kentucky/Monticello
+The timezone of Kralendijk is America/Kralendijk
+The timezone of La Paz is America/La_Paz
+The timezone of Lima is America/Lima
+The timezone of Los Angeles is America/Los_Angeles
+The timezone of Lower Princes is America/Lower_Princes
+The timezone of Maceio is America/Maceio
+The timezone of Managua is America/Managua
+The timezone of Manaus is America/Manaus
+The timezone of Marigot is America/Marigot
+The timezone of Martinique is America/Martinique
+The timezone of Matamoros is America/Matamoros
+The timezone of Mazatlan is America/Mazatlan
+The timezone of Menominee is America/Menominee
+The timezone of Merida is America/Merida
+The timezone of Metlakatla is America/Metlakatla
+The timezone of Mexico City is America/Mexico_City
+The timezone of Miquelon is America/Miquelon
+The timezone of Moncton is America/Moncton
+The timezone of Monterrey is America/Monterrey
+The timezone of Montevideo is America/Montevideo
+The timezone of Montserrat is America/Montserrat
+The timezone of Nassau is America/Nassau
+The timezone of New York is America/New_York
+The timezone of Nipigon is America/Nipigon
+The timezone of Nome is America/Nome
+The timezone of Noronha is America/Noronha
+The timezone of North Dakota - Beulah is America/North_Dakota/Beulah
+The timezone of North Dakota - Center is America/North_Dakota/Center
+The timezone of North Dakota - New Salem is America/North_Dakota/New_Salem
+The timezone of Ojinaga is America/Ojinaga
+The timezone of Panama is America/Panama
+The timezone of Pangnirtung is America/Pangnirtung
+The timezone of Paramaribo is America/Paramaribo
+The timezone of Phoenix is America/Phoenix
+The timezone of Port-au-Prince is America/Port-au-Prince
+The timezone of Port of Spain is America/Port_of_Spain
+The timezone of Porto Velho is America/Porto_Velho
+The timezone of Puerto Rico is America/Puerto_Rico
+The timezone of Punta Arenas is America/Punta_Arenas
+The timezone of Rainy River is America/Rainy_River
+The timezone of Rankin Inlet is America/Rankin_Inlet
+The timezone of Recife is America/Recife
+The timezone of Regina is America/Regina
+The timezone of Resolute is America/Resolute
+The timezone of Rio Branco is America/Rio_Branco
+The timezone of Santarem is America/Santarem
+The timezone of Santiago is America/Santiago
+The timezone of Santo Domingo is America/Santo_Domingo
+The timezone of Sao Paulo is America/Sao_Paulo
+The timezone of Scoresbysund is America/Scoresbysund
+The timezone of Sitka is America/Sitka
+The timezone of St Barthelemy is America/St_Barthelemy
+The timezone of St Johns is America/St_Johns
+The timezone of St Kitts is America/St_Kitts
+The timezone of St Lucia is America/St_Lucia
+The timezone of St Thomas is America/St_Thomas
+The timezone of St Vincent is America/St_Vincent
+The timezone of Swift Current is America/Swift_Current
+The timezone of Tegucigalpa is America/Tegucigalpa
+The timezone of Thule is America/Thule
+The timezone of Thunder Bay is America/Thunder_Bay
+The timezone of Tijuana is America/Tijuana
+The timezone of Toronto is America/Toronto
+The timezone of Tortola is America/Tortola
+The timezone of Vancouver is America/Vancouver
+The timezone of Whitehorse is America/Whitehorse
+The timezone of Winnipeg is America/Winnipeg
+The timezone of Yakutat is America/Yakutat
+The timezone of Yellowknife is America/Yellowknife
+The timezone of Casey is Antarctica/Casey
+The timezone of Davis is Antarctica/Davis
+The timezone of DumontDUrville is Antarctica/DumontDUrville
+The timezone of Macquarie is Antarctica/Macquarie
+The timezone of Mawson is Antarctica/Mawson
+The timezone of McMurdo is Antarctica/McMurdo
+The timezone of Palmer is Antarctica/Palmer
+The timezone of Rothera is Antarctica/Rothera
+The timezone of Syowa is Antarctica/Syowa
+The timezone of Troll is Antarctica/Troll
+The timezone of Vostok is Antarctica/Vostok
+The timezone of Longyearbyen is Arctic/Longyearbyen
+The timezone of Aden is Asia/Aden
+The timezone of Almaty is Asia/Almaty
+The timezone of Amman is Asia/Amman
+The timezone of Anadyr is Asia/Anadyr
+The timezone of Aqtau is Asia/Aqtau
+The timezone of Aqtobe is Asia/Aqtobe
+The timezone of Ashgabat is Asia/Ashgabat
+The timezone of Atyrau is Asia/Atyrau
+The timezone of Baghdad is Asia/Baghdad
+The timezone of Bahrain is Asia/Bahrain
+The timezone of Baku is Asia/Baku
+The timezone of Bangkok is Asia/Bangkok
+The timezone of Barnaul is Asia/Barnaul
+The timezone of Beirut is Asia/Beirut
+The timezone of Bishkek is Asia/Bishkek
+The timezone of Brunei is Asia/Brunei
+The timezone of Chita is Asia/Chita
+The timezone of Choibalsan is Asia/Choibalsan
+The timezone of Colombo is Asia/Colombo
+The timezone of Damascus is Asia/Damascus
+The timezone of Dhaka is Asia/Dhaka
+The timezone of Dili is Asia/Dili
+The timezone of Dubai is Asia/Dubai
+The timezone of Dushanbe is Asia/Dushanbe
+The timezone of Famagusta is Asia/Famagusta
+The timezone of Gaza is Asia/Gaza
+The timezone of Hebron is Asia/Hebron
+The timezone of Ho Chi Minh is Asia/Ho_Chi_Minh
+The timezone of Hong Kong is Asia/Hong_Kong
+The timezone of Hovd is Asia/Hovd
+The timezone of Irkutsk is Asia/Irkutsk
+The timezone of Jakarta is Asia/Jakarta
+The timezone of Jayapura is Asia/Jayapura
+The timezone of Jerusalem is Asia/Jerusalem
+The timezone of Kabul is Asia/Kabul
+The timezone of Kamchatka is Asia/Kamchatka
+The timezone of Karachi is Asia/Karachi
+The timezone of Kathmandu is Asia/Kathmandu
+The timezone of Khandyga is Asia/Khandyga
+The timezone of Kolkata is Asia/Kolkata
+The timezone of Krasnoyarsk is Asia/Krasnoyarsk
+The timezone of Kuala Lumpur is Asia/Kuala_Lumpur
+The timezone of Kuching is Asia/Kuching
+The timezone of Kuwait is Asia/Kuwait
+The timezone of Macau is Asia/Macau
+The timezone of Magadan is Asia/Magadan
+The timezone of Makassar is Asia/Makassar
+The timezone of Manila is Asia/Manila
+The timezone of Muscat is Asia/Muscat
+The timezone of Nicosia is Asia/Nicosia
+The timezone of Novokuznetsk is Asia/Novokuznetsk
+The timezone of Novosibirsk is Asia/Novosibirsk
+The timezone of Omsk is Asia/Omsk
+The timezone of Oral is Asia/Oral
+The timezone of Phnom Penh is Asia/Phnom_Penh
+The timezone of Pontianak is Asia/Pontianak
+The timezone of Pyongyang is Asia/Pyongyang
+The timezone of Qatar is Asia/Qatar
+The timezone of Qostanay is Asia/Qostanay
+The timezone of Qyzylorda is Asia/Qyzylorda
+The timezone of Riyadh is Asia/Riyadh
+The timezone of Sakhalin is Asia/Sakhalin
+The timezone of Samarkand is Asia/Samarkand
+The timezone of Seoul is Asia/Seoul
+The timezone of Shanghai is Asia/Shanghai
+The timezone of Singapore is Asia/Singapore
+The timezone of Srednekolymsk is Asia/Srednekolymsk
+The timezone of Taipei is Asia/Taipei
+The timezone of Tashkent is Asia/Tashkent
+The timezone of Tbilisi is Asia/Tbilisi
+The timezone of Tehran is Asia/Tehran
+The timezone of Thimphu is Asia/Thimphu
+The timezone of Tokyo is Asia/Tokyo
+The timezone of Tomsk is Asia/Tomsk
+The timezone of Ulaanbaatar is Asia/Ulaanbaatar
+The timezone of Urumqi is Asia/Urumqi
+The timezone of Ust-Nera is Asia/Ust-Nera
+The timezone of Vientiane is Asia/Vientiane
+The timezone of Vladivostok is Asia/Vladivostok
+The timezone of Yakutsk is Asia/Yakutsk
+The timezone of Yangon is Asia/Yangon
+The timezone of Yekaterinburg is Asia/Yekaterinburg
+The timezone of Yerevan is Asia/Yerevan
+The timezone of Azores is Atlantic/Azores
+The timezone of Bermuda is Atlantic/Bermuda
+The timezone of Canary is Atlantic/Canary
+The timezone of Cape Verde is Atlantic/Cape_Verde
+The timezone of Faroe is Atlantic/Faroe
+The timezone of Madeira is Atlantic/Madeira
+The timezone of Reykjavik is Atlantic/Reykjavik
+The timezone of South Georgia is Atlantic/South_Georgia
+The timezone of Stanley is Atlantic/Stanley
+The timezone of St Helena is Atlantic/St_Helena
+The timezone of Adelaide is Australia/Adelaide
+The timezone of Brisbane is Australia/Brisbane
+The timezone of Broken Hill is Australia/Broken_Hill
+The timezone of Currie is Australia/Currie
+The timezone of Darwin is Australia/Darwin
+The timezone of Eucla is Australia/Eucla
+The timezone of Hobart is Australia/Hobart
+The timezone of Lindeman is Australia/Lindeman
+The timezone of Lord Howe is Australia/Lord_Howe
+The timezone of Melbourne is Australia/Melbourne
+The timezone of Perth is Australia/Perth
+The timezone of Sydney is Australia/Sydney
+The timezone of Amsterdam is Europe/Amsterdam
+The timezone of Andorra is Europe/Andorra
+The timezone of Astrakhan is Europe/Astrakhan
+The timezone of Athens is Europe/Athens
+The timezone of Belgrade is Europe/Belgrade
+The timezone of Berlin is Europe/Berlin
+The timezone of Bratislava is Europe/Bratislava
+The timezone of Brussels is Europe/Brussels
+The timezone of Bucharest is Europe/Bucharest
+The timezone of Budapest is Europe/Budapest
+The timezone of Busingen is Europe/Busingen
+The timezone of Chisinau is Europe/Chisinau
+The timezone of Copenhagen is Europe/Copenhagen
+The timezone of Dublin is Europe/Dublin
+The timezone of Gibraltar is Europe/Gibraltar
+The timezone of Guernsey is Europe/Guernsey
+The timezone of Helsinki is Europe/Helsinki
+The timezone of Isle of Man is Europe/Isle_of_Man
+The timezone of Istanbul is Europe/Istanbul
+The timezone of Jersey is Europe/Jersey
+The timezone of Kaliningrad is Europe/Kaliningrad
+The timezone of Kiev is Europe/Kiev
+The timezone of Kirov is Europe/Kirov
+The timezone of Lisbon is Europe/Lisbon
+The timezone of Ljubljana is Europe/Ljubljana
+The timezone of London is Europe/London
+The timezone of Luxembourg is Europe/Luxembourg
+The timezone of Madrid is Europe/Madrid
+The timezone of Malta is Europe/Malta
+The timezone of Mariehamn is Europe/Mariehamn
+The timezone of Minsk is Europe/Minsk
+The timezone of Monaco is Europe/Monaco
+The timezone of Moscow is Europe/Moscow
+The timezone of Oslo is Europe/Oslo
+The timezone of Paris is Europe/Paris
+The timezone of Podgorica is Europe/Podgorica
+The timezone of Prague is Europe/Prague
+The timezone of Riga is Europe/Riga
+The timezone of Rome is Europe/Rome
+The timezone of Samara is Europe/Samara
+The timezone of San Marino is Europe/San_Marino
+The timezone of Sarajevo is Europe/Sarajevo
+The timezone of Saratov is Europe/Saratov
+The timezone of Simferopol is Europe/Simferopol
+The timezone of Skopje is Europe/Skopje
+The timezone of Sofia is Europe/Sofia
+The timezone of Stockholm is Europe/Stockholm
+The timezone of Tallinn is Europe/Tallinn
+The timezone of Tirane is Europe/Tirane
+The timezone of Ulyanovsk is Europe/Ulyanovsk
+The timezone of Uzhgorod is Europe/Uzhgorod
+The timezone of Vaduz is Europe/Vaduz
+The timezone of Vatican is Europe/Vatican
+The timezone of Vienna is Europe/Vienna
+The timezone of Vilnius is Europe/Vilnius
+The timezone of Volgograd is Europe/Volgograd
+The timezone of Warsaw is Europe/Warsaw
+The timezone of Zagreb is Europe/Zagreb
+The timezone of Zaporozhye is Europe/Zaporozhye
+The timezone of Zurich is Europe/Zurich
+The timezone of Antananarivo is Indian/Antananarivo
+The timezone of Chagos is Indian/Chagos
+The timezone of Christmas is Indian/Christmas
+The timezone of Cocos is Indian/Cocos
+The timezone of Comoro is Indian/Comoro
+The timezone of Kerguelen is Indian/Kerguelen
+The timezone of Mahe is Indian/Mahe
+The timezone of Maldives is Indian/Maldives
+The timezone of Mauritius is Indian/Mauritius
+The timezone of Mayotte is Indian/Mayotte
+The timezone of Reunion is Indian/Reunion
+The timezone of Apia is Pacific/Apia
+The timezone of Auckland is Pacific/Auckland
+The timezone of Bougainville is Pacific/Bougainville
+The timezone of Chatham is Pacific/Chatham
+The timezone of Chuuk is Pacific/Chuuk
+The timezone of Easter is Pacific/Easter
+The timezone of Efate is Pacific/Efate
+The timezone of Enderbury is Pacific/Enderbury
+The timezone of Fakaofo is Pacific/Fakaofo
+The timezone of Fiji is Pacific/Fiji
+The timezone of Funafuti is Pacific/Funafuti
+The timezone of Galapagos is Pacific/Galapagos
+The timezone of Gambier is Pacific/Gambier
+The timezone of Guadalcanal is Pacific/Guadalcanal
+The timezone of Guam is Pacific/Guam
+The timezone of Honolulu is Pacific/Honolulu
+The timezone of Kiritimati is Pacific/Kiritimati
+The timezone of Kosrae is Pacific/Kosrae
+The timezone of Kwajalein is Pacific/Kwajalein
+The timezone of Majuro is Pacific/Majuro
+The timezone of Marquesas is Pacific/Marquesas
+The timezone of Midway is Pacific/Midway
+The timezone of Nauru is Pacific/Nauru
+The timezone of Niue is Pacific/Niue
+The timezone of Norfolk is Pacific/Norfolk
+The timezone of Noumea is Pacific/Noumea
+The timezone of Pago Pago is Pacific/Pago_Pago
+The timezone of Palau is Pacific/Palau
+The timezone of Pitcairn is Pacific/Pitcairn
+The timezone of Pohnpei is Pacific/Pohnpei
+The timezone of Port Moresby is Pacific/Port_Moresby
+The timezone of Rarotonga is Pacific/Rarotonga
+The timezone of Saipan is Pacific/Saipan
+The timezone of Tahiti is Pacific/Tahiti
+The timezone of Tarawa is Pacific/Tarawa
+The timezone of Tongatapu is Pacific/Tongatapu
+The timezone of Wake is Pacific/Wake
+The timezone of Wallis is Pacific/Wallis

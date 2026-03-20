@@ -18,7 +18,5 @@ export class Archiver implements Executable {
     await archive.finalize();
 
     await new Promise<void>((resolve, reject) => writeStream.on('close', resolve).on('error', reject));
-
-    return input;
   }
 }
