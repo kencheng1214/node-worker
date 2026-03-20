@@ -12,6 +12,7 @@ async function bootstrap() {
       { name: 'CsvParser', options: { columns: true } },
       { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
       { name: 'Inspector' },
+      { name: 'Packer' },
       { name: 'Archiver', options: { path: 'timezone.zip' } },
     ],
   });

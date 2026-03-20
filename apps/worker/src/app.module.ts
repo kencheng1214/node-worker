@@ -8,6 +8,7 @@ import { FileReader } from './executables/file-reader.executable';
 import { FileWriter } from './executables/file-writer.executable';
 import { Inspector } from './executables/inspector.executable';
 import { OracleLoader } from './executables/oracle-loader.executable';
+import { Packer } from './executables/packer.executable';
 import { Stringifier } from './executables/stringifier.executable';
 import { Trimmer } from './executables/trimmer.executable';
 
@@ -37,6 +38,10 @@ import { Trimmer } from './executables/trimmer.executable';
     {
       provide: Batcher.name,
       useClass: Batcher,
+    },
+    {
+      provide: Packer.name,
+      useClass: Packer,
     },
     {
       provide: Archiver.name,
