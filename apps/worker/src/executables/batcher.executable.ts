@@ -8,11 +8,11 @@ export class Batcher implements Executable {
     const size = options?.size ?? 0;
 
     context.readStream = context.readStream.pipe(
-      Transform.from(async function* (lines: AsyncIterable<Buffer>) {
+      Transform.from(async function* (source: AsyncIterable<Buffer>) {
         let buffer: Buffer[] = [];
 
-        for await (const line of lines) {
-          const chunk = Buffer.from(line);
+        for await (const value of source) {
+          const chunk = Buffer.from(value);
 
           if (size <= 0) {
             yield chunk;
