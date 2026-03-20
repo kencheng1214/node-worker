@@ -1,10 +1,11 @@
 import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import { Executable } from '../app.interface';
+import { BatcherOptions } from './batcher.schema';
 
 @Injectable()
 export class Batcher implements Executable {
-  execute(input: any, options?: { size?: number }) {
+  execute(input: any, options?: BatcherOptions) {
     const size = options?.size ?? 0;
 
     return input.pipe(

@@ -1,74 +1,13 @@
 import { z } from 'zod';
-
-export const FileReaderSchema = z.object({
-  name: z.literal('FileReader'),
-  options: z.object({
-    path: z.string(),
-  }),
-});
-
-export const TrimmerSchema = z.object({
-  name: z.literal('Trimmer'),
-  options: z
-    .object({
-      start: z.number().optional(),
-      end: z.number().optional(),
-    })
-    .optional(),
-});
-
-export const CsvParserSchema = z.object({
-  name: z.literal('CsvParser'),
-  options: z
-    .object({
-      columns: z.union([z.boolean(), z.array(z.string())]).optional(),
-    })
-    .optional(),
-});
-
-export const StringifierSchema = z.object({
-  name: z.literal('Stringifier'),
-  options: z
-    .object({
-      format: z.string().optional(),
-    })
-    .optional(),
-});
-
-export const BatcherSchema = z.object({
-  name: z.literal('Batcher'),
-  options: z
-    .object({
-      size: z.number().optional(),
-    })
-    .optional(),
-});
-
-export const PackerSchema = z.object({
-  name: z.literal('Packer'),
-  options: z.object().optional(),
-});
-
-export const ArchiverSchema = z.object({
-  name: z.literal('Archiver'),
-  options: z.object({
-    path: z.string(),
-    format: z.enum(['zip', 'tar']).optional(),
-    filename: z.string().optional(),
-  }),
-});
-
-export const FileWriterSchema = z.object({
-  name: z.literal('FileWriter'),
-  options: z.object({
-    path: z.string(),
-  }),
-});
-
-export const InspectorSchema = z.object({
-  name: z.literal('Inspector'),
-  options: z.object().optional(),
-});
+import { ArchiverSchema } from './executables/archiver.schema';
+import { BatcherSchema } from './executables/batcher.schema';
+import { CsvParserSchema } from './executables/csv-parser.schema';
+import { FileReaderSchema } from './executables/file-reader.schema';
+import { FileWriterSchema } from './executables/file-writer.schema';
+import { InspectorSchema } from './executables/inspector.schema';
+import { PackerSchema } from './executables/packer.schema';
+import { StringifierSchema } from './executables/stringifier.schema';
+import { TrimmerSchema } from './executables/trimmer.schema';
 
 export const PipelineSchema = z.array(
   z.discriminatedUnion('name', [

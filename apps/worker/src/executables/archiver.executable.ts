@@ -3,10 +3,11 @@ import { Injectable } from '@nestjs/common';
 import archiver from 'archiver';
 import Handlebars from 'handlebars';
 import { Executable } from '../app.interface';
+import { ArchiverOptions } from './archiver.schema';
 
 @Injectable()
 export class Archiver implements Executable {
-  async execute(input: AsyncIterable<any>, options: { path: string; format?: archiver.Format; filename?: string }) {
+  async execute(input: AsyncIterable<any>, options?: ArchiverOptions) {
     const template = options.filename ? Handlebars.compile(options.filename) : undefined;
     const writeStream = createWriteStream(options.path);
     const archive = archiver(options.format ?? 'zip');

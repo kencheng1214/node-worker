@@ -3,10 +3,11 @@ import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import Handlebars from 'handlebars';
 import { Executable } from '../app.interface';
+import { StringifierOptions } from './stringifier.schema';
 
 @Injectable()
 export class Stringifier implements Executable {
-  execute(input: any, options?: { format?: string }) {
+  execute(input: any, options?: StringifierOptions) {
     const template = options?.format ? Handlebars.compile(options.format) : undefined;
 
     return input.pipe(
