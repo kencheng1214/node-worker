@@ -1,6 +1,6 @@
+import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import Handlebars from 'handlebars';
-import through2 from 'through2';
 import { Executable, ExecutionContext } from '../app.interface';
 
 @Injectable()
@@ -9,7 +9,9 @@ export class Stringifier implements Executable {
     const template = options?.format ? Handlebars.compile(options.format) : undefined;
 
     context.readStream = context.readStream.pipe(
-      through2.obj((chunk, enc, callback) => callback(null, template?.(chunk) ?? JSON.stringify(chunk))),
+      Transform.from(async function* (source: AsyncIterable<Buffer>) {
+        for await (const value of source) yield template?.(value) ?? JSON.stringify(value);
+      }),
     );
   }
 }
