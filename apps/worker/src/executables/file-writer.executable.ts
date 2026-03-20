@@ -6,7 +6,7 @@ import { FileWriterOptions } from './file-writer.schema';
 
 @Injectable()
 export class FileWriter implements Executable {
-  async execute(input: AsyncIterable<any>, options?: FileWriterOptions) {
+  async execute(input: NodeJS.ReadableStream, options?: FileWriterOptions) {
     const template = Handlebars.compile(options.path);
     let index = 0;
 

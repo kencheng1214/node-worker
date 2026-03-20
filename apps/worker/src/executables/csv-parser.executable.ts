@@ -5,7 +5,7 @@ import { CsvParserOptions } from './csv-parser.schema';
 
 @Injectable()
 export class CsvParser implements Executable {
-  execute(input: any, options?: CsvParserOptions) {
+  execute(input: NodeJS.ReadableStream, options?: CsvParserOptions) {
     return input.pipe(parse({ columns: options?.columns }));
   }
 }

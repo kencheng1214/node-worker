@@ -5,7 +5,7 @@ import { InspectorOptions } from './inspector.schema';
 
 @Injectable()
 export class Inspector implements Executable {
-  execute(input: any, options?: InspectorOptions) {
+  execute(input: NodeJS.ReadableStream, options?: InspectorOptions) {
     return input.pipe(
       PassThrough.from(async function* (source: AsyncIterable<Buffer>) {
         for await (const value of source) {

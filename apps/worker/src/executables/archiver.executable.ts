@@ -7,7 +7,7 @@ import { ArchiverOptions } from './archiver.schema';
 
 @Injectable()
 export class Archiver implements Executable {
-  async execute(input: AsyncIterable<any>, options?: ArchiverOptions) {
+  async execute(input: NodeJS.ReadableStream, options?: ArchiverOptions) {
     const template = options.filename ? Handlebars.compile(options.filename) : undefined;
     const writeStream = createWriteStream(options.path);
     const archive = archiver(options.format ?? 'zip');

@@ -7,7 +7,7 @@ import { StringifierOptions } from './stringifier.schema';
 
 @Injectable()
 export class Stringifier implements Executable {
-  execute(input: any, options?: StringifierOptions) {
+  execute(input: NodeJS.ReadableStream, options?: StringifierOptions) {
     const template = options?.format ? Handlebars.compile(options.format) : undefined;
 
     return input.pipe(

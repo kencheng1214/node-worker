@@ -8,7 +8,7 @@ import { TrimmerOptions } from './trimmer.schema';
 
 @Injectable()
 export class Trimmer implements Executable {
-  execute(input: any, options?: TrimmerOptions) {
+  execute(input: NodeJS.ReadableStream, options?: TrimmerOptions) {
     const EOL_BUFFER = Buffer.from(EOL);
     const { start = 0, end = 0 } = options ?? {};
     const writable = split((string) => Buffer.from(string));

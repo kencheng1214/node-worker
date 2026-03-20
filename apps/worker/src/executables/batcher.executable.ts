@@ -5,7 +5,7 @@ import { BatcherOptions } from './batcher.schema';
 
 @Injectable()
 export class Batcher implements Executable {
-  execute(input: any, options?: BatcherOptions) {
+  execute(input: NodeJS.ReadableStream, options?: BatcherOptions) {
     const size = options?.size ?? 0;
 
     return input.pipe(
