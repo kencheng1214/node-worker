@@ -12,6 +12,12 @@ export const FileReaderSchema = z.object({
   name: z.literal('FileReader'),
   options: z.object({
     path: z.string(),
+    trim: z
+      .object({
+        start: z.number().optional(),
+        end: z.number().optional(),
+      })
+      .optional(),
   }),
 });
 
@@ -20,12 +26,6 @@ export const CsvParserSchema = z.object({
   options: z
     .object({
       columns: z.union([z.boolean(), z.array(z.string())]).optional(),
-      trim: z
-        .object({
-          start: z.number().optional(),
-          end: z.number().optional(),
-        })
-        .optional(),
     })
     .optional(),
 });
