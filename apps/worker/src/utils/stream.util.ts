@@ -21,3 +21,19 @@ export function trim(options?: { start?: number; end?: number }) {
 
   return pumpify(writable, readable);
 }
+
+export function buffer(options?: { size?: number }) {
+  const size = options?.size ?? 1000;
+  let buffer: Buffer[] = [];
+
+  return Transform.from(async function* (lines: AsyncIterable<Buffer>) {
+    for await (const line of lines) {
+      buffer.push(Buffer.from(line));
+      if (buffer.length === size) {
+        yield Buffer.concat(buffer);
+        buffer = [];
+      }
+    }
+    if (buffer.length > 0) yield Buffer.concat(buffer);
+  });
+}
