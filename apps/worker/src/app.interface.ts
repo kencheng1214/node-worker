@@ -3,6 +3,6 @@ import { SpecificationSchema } from './app.constant';
 
 export type Specification = z.infer<typeof SpecificationSchema>;
 
-export interface Executable<I = unknown, O = unknown, Opt = Record<string, any>> {
-  execute(input: I, options?: Opt): O | Promise<O>;
+export interface Executable<I = unknown, O = unknown> {
+  execute(input: I, options?: Record<string, any>): O | Promise<O>;
 }

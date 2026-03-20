@@ -9,12 +9,7 @@ export class AppService {
   async run(specification: Specification) {
     let input: unknown = undefined;
 
-    for (const step of specification.pipeline) {
-      const executable = this.moduleRef.get<Executable>(step.name);
-
-      input = await executable.execute(input, step.options);
-    }
-
-    return input;
+    for (const step of specification.pipeline)
+      input = await this.moduleRef.get<Executable>(step.name).execute(input, step.options);
   }
 }
