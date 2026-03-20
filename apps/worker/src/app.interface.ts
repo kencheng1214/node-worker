@@ -12,13 +12,17 @@ export const FileReaderSchema = z.object({
   name: z.literal('FileReader'),
   options: z.object({
     path: z.string(),
-    trim: z
-      .object({
-        start: z.number().optional(),
-        end: z.number().optional(),
-      })
-      .optional(),
   }),
+});
+
+export const TrimmerSchema = z.object({
+  name: z.literal('Trimmer'),
+  options: z
+    .object({
+      start: z.number().optional(),
+      end: z.number().optional(),
+    })
+    .optional(),
 });
 
 export const CsvParserSchema = z.object({
@@ -74,6 +78,7 @@ export const SpecificationSchema = z.object({
     z.discriminatedUnion('name', [
       FilePresenceCheckerSchema,
       FileReaderSchema,
+      TrimmerSchema,
       CsvParserSchema,
       StringifierSchema,
       BatcherSchema,

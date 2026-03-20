@@ -9,7 +9,8 @@ async function bootstrap() {
   await service.run({
     pipeline: [
       { name: 'FilePresenceChecker', options: { file: 'timezone.csv' } },
-      { name: 'FileReader', options: { path: 'timezone.csv', trim: { end: 56 } } },
+      { name: 'FileReader', options: { path: 'timezone.csv' } },
+      { name: 'Trimmer', options: { end: 56 } },
       { name: 'CsvParser', options: { columns: true } },
       { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
       { name: 'Batcher', options: { size: 100 } },

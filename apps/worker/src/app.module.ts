@@ -8,6 +8,7 @@ import { FileReader } from './executables/file-reader.executable';
 import { FileWriter } from './executables/file-writer.executable';
 import { OracleLoader } from './executables/oracle-loader.executable';
 import { Stringifier } from './executables/stringifier.executable';
+import { Trimmer } from './executables/trimmer.executable';
 
 @Module({
   providers: [
@@ -19,6 +20,10 @@ import { Stringifier } from './executables/stringifier.executable';
     {
       provide: FileReader.name,
       useClass: FileReader,
+    },
+    {
+      provide: Trimmer.name,
+      useClass: Trimmer,
     },
     {
       provide: CsvParser.name,
