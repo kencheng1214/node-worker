@@ -1,5 +1,5 @@
 import { EOL } from 'node:os';
-import { PassThrough, Transform } from 'node:stream';
+import { Transform } from 'node:stream';
 import pumpify from 'pumpify';
 import split from 'split2';
 
