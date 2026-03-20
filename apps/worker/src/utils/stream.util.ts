@@ -1,5 +1,5 @@
 import { EOL } from 'node:os';
-import { Transform } from 'node:stream';
+import { PassThrough, Transform } from 'node:stream';
 import pumpify from 'pumpify';
 import split from 'split2';
 
@@ -24,12 +24,19 @@ export function trim(options?: { start?: number; end?: number }) {
 
 export function buffer(options?: { size?: number }) {
   const EOL_BUFFER = Buffer.from(EOL);
-  const size = options?.size ?? 1000;
+  const size = options?.size ?? 0;
   let buffer: Buffer[] = [];
 
   return Transform.from(async function* (lines: AsyncIterable<Buffer>) {
     for await (const line of lines) {
-      buffer.push(Buffer.concat([Buffer.from(line), EOL_BUFFER]));
+      const chunk = Buffer.concat([Buffer.from(line), EOL_BUFFER]);
+
+      if (size <= 0) {
+        yield chunk;
+        continue;
+      }
+
+      buffer.push(chunk);
       if (buffer.length === size) {
         yield Buffer.concat(buffer);
         buffer = [];
