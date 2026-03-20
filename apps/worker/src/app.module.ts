@@ -22,12 +22,12 @@ import { Stringifier } from './executables/stringifier.executable';
       useClass: CsvParser,
     },
     {
-      provide: OracleLoader.name,
-      useClass: OracleLoader,
-    },
-    {
       provide: Stringifier.name,
       useClass: Stringifier,
+    },
+    {
+      provide: OracleLoader.name,
+      useClass: OracleLoader,
     },
   ],
 })
