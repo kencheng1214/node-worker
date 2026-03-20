@@ -35,7 +35,6 @@ export const StringifierSchema = z.object({
   options: z
     .object({
       format: z.string().optional(),
-      eol: z.boolean().optional(),
     })
     .optional(),
 });
