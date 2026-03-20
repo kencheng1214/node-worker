@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Archiver } from './executables/archiver.executable';
 import { Batcher } from './executables/batcher.executable';
+import { Collector } from './executables/collector.executable';
 import { CsvParser } from './executables/csv-parser.executable';
 import { FilePresenceChecker } from './executables/file-presence-checker.executable';
 import { FileReader } from './executables/file-reader.executable';
@@ -36,6 +37,10 @@ import { Trimmer } from './executables/trimmer.executable';
     {
       provide: Batcher.name,
       useClass: Batcher,
+    },
+    {
+      provide: Collector.name,
+      useClass: Collector,
     },
     {
       provide: Archiver.name,

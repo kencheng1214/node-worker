@@ -52,6 +52,11 @@ export const BatcherSchema = z.object({
     .optional(),
 });
 
+export const CollectorSchema = z.object({
+  name: z.literal('Collector'),
+  options: z.object().optional(),
+});
+
 export const ArchiverSchema = z.object({
   name: z.literal('Archiver'),
   options: z.object({
@@ -82,6 +87,7 @@ export const SpecificationSchema = z.object({
       CsvParserSchema,
       StringifierSchema,
       BatcherSchema,
+      CollectorSchema,
       ArchiverSchema,
       FileWriterSchema,
       OracleLoaderSchema,
