@@ -4,6 +4,7 @@ import { CsvParser } from './executables/csv-parser.executable';
 import { FilePresenceChecker } from './executables/file-presence-checker.executable';
 import { FileReader } from './executables/file-reader.executable';
 import { OracleLoader } from './executables/oracle-loader.executable';
+import { Stringifier } from './executables/stringifier.executable';
 
 @Module({
   providers: [
@@ -23,6 +24,10 @@ import { OracleLoader } from './executables/oracle-loader.executable';
     {
       provide: OracleLoader.name,
       useClass: OracleLoader,
+    },
+    {
+      provide: Stringifier.name,
+      useClass: Stringifier,
     },
   ],
 })

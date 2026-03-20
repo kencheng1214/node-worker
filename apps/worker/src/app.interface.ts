@@ -24,6 +24,11 @@ export const CsvParserSchema = z.object({
     .optional(),
 });
 
+export const StringifierSchema = z.object({
+  name: z.literal('Stringifier'),
+  options: z.object().optional(),
+});
+
 export const OracleLoaderSchema = z.object({
   name: z.literal('OracleLoader'),
   options: z.object().optional(),
@@ -31,7 +36,13 @@ export const OracleLoaderSchema = z.object({
 
 export const SpecificationSchema = z.object({
   pipeline: z.array(
-    z.discriminatedUnion('name', [FilePresenceCheckerSchema, FileReaderSchema, CsvParserSchema, OracleLoaderSchema]),
+    z.discriminatedUnion('name', [
+      FilePresenceCheckerSchema,
+      FileReaderSchema,
+      CsvParserSchema,
+      StringifierSchema,
+      OracleLoaderSchema,
+    ]),
   ),
 });
 
