@@ -10,21 +10,21 @@ import { StdoutWriterSchema } from './executables/stdout-writer.schema';
 import { StringifierSchema } from './executables/stringifier.schema';
 import { TrimmerSchema } from './executables/trimmer.schema';
 
+export const SOURCE = [FileReaderSchema] as const;
+
+export const TRANSFORM = [
+  TrimmerSchema,
+  CsvParserSchema,
+  StringifierSchema,
+  BatcherSchema,
+  PackerSchema,
+  InspectorSchema,
+] as const;
+
+export const SINK = [StdoutWriterSchema, FileWriterSchema, ArchiverSchema] as const;
+
 export const SpecificationSchema = z.object({
-  pipeline: z.array(
-    z.discriminatedUnion('name', [
-      FileReaderSchema,
-      TrimmerSchema,
-      CsvParserSchema,
-      StringifierSchema,
-      BatcherSchema,
-      PackerSchema,
-      StdoutWriterSchema,
-      ArchiverSchema,
-      FileWriterSchema,
-      InspectorSchema,
-    ]),
-  ),
+  pipeline: z.array(z.discriminatedUnion('name', [...SOURCE, ...TRANSFORM, ...SINK])),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;
