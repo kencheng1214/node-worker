@@ -83,20 +83,22 @@ export const InspectorSchema = z.object({
   options: z.object().optional(),
 });
 
+export const PipelineSchema = z.array(
+  z.discriminatedUnion('name', [
+    FilePresenceCheckerSchema,
+    FileReaderSchema,
+    TrimmerSchema,
+    CsvParserSchema,
+    StringifierSchema,
+    BatcherSchema,
+    PackerSchema,
+    ArchiverSchema,
+    FileWriterSchema,
+    OracleLoaderSchema,
+    InspectorSchema,
+  ]),
+);
+
 export const SpecificationSchema = z.object({
-  pipeline: z.array(
-    z.discriminatedUnion('name', [
-      FilePresenceCheckerSchema,
-      FileReaderSchema,
-      TrimmerSchema,
-      CsvParserSchema,
-      StringifierSchema,
-      BatcherSchema,
-      PackerSchema,
-      ArchiverSchema,
-      FileWriterSchema,
-      OracleLoaderSchema,
-      InspectorSchema,
-    ]),
-  ),
+  pipeline: PipelineSchema,
 });
