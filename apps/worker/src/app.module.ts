@@ -7,7 +7,6 @@ import { FilePresenceChecker } from './executables/file-presence-checker.executa
 import { FileReader } from './executables/file-reader.executable';
 import { FileWriter } from './executables/file-writer.executable';
 import { Inspector } from './executables/inspector.executable';
-import { OracleLoader } from './executables/oracle-loader.executable';
 import { Packer } from './executables/packer.executable';
 import { Stringifier } from './executables/stringifier.executable';
 import { Trimmer } from './executables/trimmer.executable';
@@ -50,10 +49,6 @@ import { Trimmer } from './executables/trimmer.executable';
     {
       provide: FileWriter.name,
       useClass: FileWriter,
-    },
-    {
-      provide: OracleLoader.name,
-      useClass: OracleLoader,
     },
     {
       provide: Inspector.name,

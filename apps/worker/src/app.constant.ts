@@ -73,11 +73,6 @@ export const FileWriterSchema = z.object({
   }),
 });
 
-export const OracleLoaderSchema = z.object({
-  name: z.literal('OracleLoader'),
-  options: z.object().optional(),
-});
-
 export const InspectorSchema = z.object({
   name: z.literal('Inspector'),
   options: z.object().optional(),
@@ -94,7 +89,6 @@ export const PipelineSchema = z.array(
     PackerSchema,
     ArchiverSchema,
     FileWriterSchema,
-    OracleLoaderSchema,
     InspectorSchema,
   ]),
 );
