@@ -21,8 +21,7 @@ export class AppService {
     }
 
     let index = 0;
-    for await (const chunk of context.readStream.pipe(buffer({ size: 250 }))) {
+    for await (const chunk of context.readStream.pipe(buffer({ size: 250 })))
       await writeFile(`timezone.txt.${++index}`, chunk);
-    }
   }
 }
