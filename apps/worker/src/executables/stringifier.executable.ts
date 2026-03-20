@@ -6,10 +6,10 @@ import { Executable, ExecutionContext } from '../app.interface';
 @Injectable()
 export class Stringifier implements Executable {
   execute(context: ExecutionContext, options?: { format?: string }) {
-    const template = Handlebars.compile(options?.format ?? '');
+    const template = options?.format ? Handlebars.compile(options.format) : undefined;
 
     context.readStream = context.readStream.pipe(
-      through2.obj((chunk, enc, callback) => callback(null, options?.format ? template(chunk) : JSON.stringify(chunk))),
+      through2.obj((chunk, enc, callback) => callback(null, template?.(chunk) ?? JSON.stringify(chunk))),
     );
   }
 }
