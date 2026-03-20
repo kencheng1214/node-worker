@@ -35,8 +35,16 @@ export const StringifierSchema = z.object({
   options: z
     .object({
       format: z.string().optional(),
+      eol: z.boolean().optional(),
     })
     .optional(),
+});
+
+export const FileWriterSchema = z.object({
+  name: z.literal('FileWriter'),
+  options: z.object({
+    path: z.string(),
+  }),
 });
 
 export const OracleLoaderSchema = z.object({
@@ -51,6 +59,7 @@ export const SpecificationSchema = z.object({
       FileReaderSchema,
       CsvParserSchema,
       StringifierSchema,
+      FileWriterSchema,
       OracleLoaderSchema,
     ]),
   ),

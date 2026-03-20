@@ -12,7 +12,7 @@ async function bootstrap() {
       { name: 'FileReader', options: { path: 'timezone.csv' } },
       { name: 'CsvParser', options: { columns: true, trim: { end: 56 } } },
       { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
-      { name: 'OracleLoader' },
+      { name: 'FileWriter', options: { path: 'timezone.txt' } },
     ],
   });
   await app.close();
