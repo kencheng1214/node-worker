@@ -5,7 +5,5 @@ import { BroadcasterOptions } from './broadcaster.schema';
 
 @Injectable()
 export class Broadcaster implements Executable {
-  execute(input: NodeJS.ReadableStream, options: BroadcasterOptions) {
-    const passThroughs = options.pipeline.map(() => new PassThrough());
-  }
+  execute(input: NodeJS.ReadableStream, options: BroadcasterOptions) {}
 }

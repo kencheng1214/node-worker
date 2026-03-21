@@ -25,14 +25,11 @@ export class AppService {
   }
 
   async fanOut(input: unknown, options: BroadcasterOptions) {
-    const forks = options.pipeline.map(() => new PassThrough({ objectMode: true }));
+    const forks = options.branches.map(() => new PassThrough({ objectMode: true }));
 
     forks.forEach((fork) => (input as any).pipe(fork));
 
-    const tasks = options.pipeline.map((step, index) => {
-      const executable = this.moduleRef.get<Executable>(step.name);
-      return executable.execute(forks[index], step.options);
-    });
+    const tasks = options.branches.map((branch, index) => this.runPipeline(forks[index], branch.pipeline));
 
     await Promise.all(tasks);
   }

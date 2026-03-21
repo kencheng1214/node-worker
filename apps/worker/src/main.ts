@@ -10,18 +10,21 @@ async function bootstrap() {
     pipeline: [
       { name: 'FileReader', options: { path: 'timezone.csv' } },
       { name: 'Trimmer', options: { end: 56 } },
-      { name: 'Packer' },
       {
         name: 'Broadcaster',
         options: {
-          pipeline: [
+          branches: [
             {
-              name: 'FileWriter',
-              options: { path: 'timezone.txt' },
+              pipeline: [
+                { name: 'Packer' },
+                {
+                  name: 'FileWriter',
+                  options: { path: 'timezone.txt' },
+                },
+              ],
             },
             {
-              name: 'Archiver',
-              options: { path: 'timezone.zip' },
+              pipeline: [{ name: 'StdoutWriter' }],
             },
           ],
         },
