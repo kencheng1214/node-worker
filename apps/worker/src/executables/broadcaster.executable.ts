@@ -11,7 +11,7 @@ export class Broadcaster implements Executable {
 
   async execute(input: NodeJS.ReadableStream, options: BroadcasterOptions) {
     const passThroughs = options.branches.map(() => new PassThrough({ objectMode: true }));
-    const runs = options.branches.map((branch, index) =>
+    const executions = options.branches.map((branch, index) =>
       this.pipelineExecutor.runPipeline(branch.pipeline, passThroughs[index]),
     );
     const broadcast = async () => {
@@ -28,10 +28,11 @@ export class Broadcaster implements Executable {
         for (const passThrough of passThroughs) passThrough.end();
       } catch (error) {
         for (const passThrough of passThroughs) passThrough.destroy(error);
+
         throw error;
       }
     };
 
-    await Promise.all([broadcast(), ...runs, finished(input)]);
+    await Promise.all([broadcast(), ...executions, finished(input)]);
   }
 }
