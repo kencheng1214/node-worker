@@ -19,9 +19,8 @@ export class AppService {
     for (const step of pipeline) {
       const executable = this.moduleRef.get<Executable>(step.name);
 
-      if (step.name === Broadcaster.name) {
-        await this.fanOut(input, (step as BroadcasterStep).options);
-      } else input = await executable.execute(input, step.options);
+      if (step.name === Broadcaster.name) await this.fanOut(input, (step as BroadcasterStep).options);
+      else input = await executable.execute(input, step.options);
     }
   }
 
