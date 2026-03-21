@@ -1,10 +1,9 @@
 import { PassThrough } from 'node:stream';
+import { finished } from 'node:stream/promises';
 import { Injectable } from '@nestjs/common';
 import { Executable } from '../app.interface';
 import { PipelineExecutorService } from '../pipeline-executor.service';
 import { BroadcasterOptions } from './broadcaster.schema';
-
-const waitDrain = (stream: NodeJS.WritableStream) => new Promise<void>((resolve) => stream.once('drain', resolve));
 
 @Injectable()
 export class Broadcaster implements Executable {
@@ -15,24 +14,24 @@ export class Broadcaster implements Executable {
     const runs = options.branches.map((branch, index) =>
       this.pipelineExecutor.runPipeline(branch.pipeline, passThroughs[index]),
     );
-    const pump = (async () => {
+    const broadcast = async () => {
       try {
-        for await (const chunk of input) {
+        for await (const chunk of input)
           await Promise.all(
-            passThroughs.map(async (fork) => {
-              if (fork.write(chunk)) return;
-              await waitDrain(fork);
-            }),
+            passThroughs.map((passThrough) =>
+              passThrough.write(chunk)
+                ? Promise.resolve()
+                : new Promise((resolve) => passThrough.once('drain', resolve)),
+            ),
           );
-        }
 
-        passThroughs.forEach((fork) => fork.end());
+        for (const passThrough of passThroughs) passThrough.end();
       } catch (error) {
-        passThroughs.forEach((fork) => fork.destroy(error as Error));
+        for (const passThrough of passThroughs) passThrough.destroy(error);
         throw error;
       }
-    })();
+    };
 
-    await Promise.all([pump, ...runs]);
+    await Promise.all([broadcast(), ...runs, finished(input)]);
   }
 }
