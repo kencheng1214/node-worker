@@ -19,9 +19,7 @@ export class Broadcaster implements Executable {
         for await (const chunk of input)
           await Promise.all(
             passThroughs.map((passThrough) =>
-              passThrough.write(chunk)
-                ? Promise.resolve()
-                : new Promise((resolve) => passThrough.once('drain', resolve)),
+              passThrough.write(chunk) ? null : new Promise((resolve) => passThrough.once('drain', resolve)),
             ),
           );
 
