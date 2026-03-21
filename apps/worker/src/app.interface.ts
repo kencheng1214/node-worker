@@ -19,14 +19,13 @@ export const TRANSFORM = [
   StringifierSchema,
   BatcherSchema,
   PackerSchema,
-  BroadcasterSchema,
   InspectorSchema,
 ] as const;
 
 export const SINK = [StdoutWriterSchema, FileWriterSchema, ArchiverSchema] as const;
 
 export const SpecificationSchema = z.object({
-  pipeline: z.array(z.discriminatedUnion('name', [...SOURCE, ...TRANSFORM, ...SINK])),
+  pipeline: z.array(z.discriminatedUnion('name', [...SOURCE, ...TRANSFORM, ...SINK, BroadcasterSchema])),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;

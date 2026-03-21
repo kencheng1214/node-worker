@@ -10,7 +10,22 @@ async function bootstrap() {
     pipeline: [
       { name: 'FileReader', options: { path: 'timezone.csv' } },
       { name: 'Trimmer', options: { end: 56 } },
-      { name: 'FileWriter', options: { path: 'timezone.txt' } },
+      { name: 'Packer' },
+      {
+        name: 'Broadcaster',
+        options: {
+          pipeline: [
+            {
+              name: 'FileWriter',
+              options: { path: 'timezone.txt' },
+            },
+            {
+              name: 'Archiver',
+              options: { path: 'timezone.zip' },
+            },
+          ],
+        },
+      },
     ],
   });
   await app.close();
