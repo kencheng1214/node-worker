@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Archiver } from './executables/archiver.executable';
 import { Batcher } from './executables/batcher.executable';
-import { Broadcaster } from './executables/broadcaster.executable';
 import { CsvParser } from './executables/csv-parser.executable';
 import { FileReader } from './executables/file-reader.executable';
 import { FileWriter } from './executables/file-writer.executable';
@@ -50,10 +49,6 @@ import { Trimmer } from './executables/trimmer.executable';
     {
       provide: Archiver.name,
       useClass: Archiver,
-    },
-    {
-      provide: Broadcaster.name,
-      useClass: Broadcaster,
     },
     {
       provide: Inspector.name,

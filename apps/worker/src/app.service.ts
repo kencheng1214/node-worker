@@ -1,9 +1,8 @@
+import { PassThrough } from 'node:stream';
 import { ModuleRef } from '@nestjs/core';
 import { Injectable } from '@nestjs/common';
-import { PassThrough } from 'stream';
 import { Executable, Specification } from './app.interface';
-import { Broadcaster } from './executables/broadcaster.executable';
-import { BroadcasterOptions, BroadcasterStep } from './executables/broadcaster.schema';
+import { BroadcasterOptions } from './executables/broadcaster.schema';
 
 @Injectable()
 export class AppService {
@@ -17,10 +16,8 @@ export class AppService {
 
   private async runPipeline(input: unknown, pipeline: Specification['pipeline']) {
     for (const step of pipeline) {
-      const executable = this.moduleRef.get<Executable>(step.name);
-
-      if (step.name === Broadcaster.name) await this.fanOut(input, (step as BroadcasterStep).options);
-      else input = await executable.execute(input, step.options);
+      if (step.name === 'Broadcaster') await this.fanOut(input, step.options);
+      else input = await this.moduleRef.get<Executable>(step.name).execute(input, step.options);
     }
   }
 
@@ -28,9 +25,6 @@ export class AppService {
     const forks = options.branches.map(() => new PassThrough({ objectMode: true }));
 
     forks.forEach((fork) => (input as any).pipe(fork));
-
-    const tasks = options.branches.map((branch, index) => this.runPipeline(forks[index], branch.pipeline));
-
-    await Promise.all(tasks);
+    await Promise.all(options.branches.map((branch, index) => this.runPipeline(forks[index], branch.pipeline)));
   }
 }
