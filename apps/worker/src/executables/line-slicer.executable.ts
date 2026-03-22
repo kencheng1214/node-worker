@@ -4,23 +4,23 @@ import { Injectable } from '@nestjs/common';
 import pumpify from 'pumpify';
 import split from 'split2';
 import { Executable } from '../app.interface';
-import { TrimmerOptions } from './trimmer.schema';
+import { LineSlicerOptions } from './line-slicer.schema';
 
 @Injectable()
-export class Trimmer implements Executable {
-  execute(input: NodeJS.ReadableStream, options?: TrimmerOptions) {
+export class LineSlicer implements Executable {
+  execute(input: NodeJS.ReadableStream, options?: LineSlicerOptions) {
     const EOL_BUFFER = Buffer.from(EOL);
-    const { start = 0, end = 0 } = options ?? {};
+    const { first = 0, last = 0 } = options ?? {};
     const writable = split((string) => Buffer.from(string));
     const readable = Transform.from(async function* (lines: AsyncIterable<Buffer>) {
       const window: Buffer[] = [];
       let index = 0;
 
       for await (const line of lines) {
-        if (index++ < start) continue;
+        if (index++ < first) continue;
 
         window.push(line);
-        if (window.length > end) yield Buffer.concat([window.shift(), EOL_BUFFER]);
+        if (window.length > last) yield Buffer.concat([window.shift(), EOL_BUFFER]);
       }
     });
 

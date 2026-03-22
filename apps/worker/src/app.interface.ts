@@ -6,15 +6,15 @@ import { CsvParserSchema } from './executables/csv-parser.schema';
 import { FileReaderSchema } from './executables/file-reader.schema';
 import { FileWriterSchema } from './executables/file-writer.schema';
 import { InspectorSchema } from './executables/inspector.schema';
+import { LineSlicerSchema } from './executables/line-slicer.schema';
 import { PackerSchema } from './executables/packer.schema';
 import { StdoutWriterSchema } from './executables/stdout-writer.schema';
 import { StringifierSchema } from './executables/stringifier.schema';
-import { TrimmerSchema } from './executables/trimmer.schema';
 
 export const SOURCE = [FileReaderSchema] as const;
 
 export const TRANSFORM = [
-  TrimmerSchema,
+  LineSlicerSchema,
   CsvParserSchema,
   StringifierSchema,
   BatcherSchema,

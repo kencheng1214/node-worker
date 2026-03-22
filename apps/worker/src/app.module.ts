@@ -7,10 +7,10 @@ import { CsvParser } from './executables/csv-parser.executable';
 import { FileReader } from './executables/file-reader.executable';
 import { FileWriter } from './executables/file-writer.executable';
 import { Inspector } from './executables/inspector.executable';
+import { LineSlicer } from './executables/line-slicer.executable';
 import { Packer } from './executables/packer.executable';
 import { StdoutWriter } from './executables/stdout-writer.executable';
 import { Stringifier } from './executables/stringifier.executable';
-import { Trimmer } from './executables/trimmer.executable';
 import { PipelineExecutorService } from './pipeline-executor.service';
 
 @Module({
@@ -22,8 +22,8 @@ import { PipelineExecutorService } from './pipeline-executor.service';
       useClass: FileReader,
     },
     {
-      provide: Trimmer.name,
-      useClass: Trimmer,
+      provide: LineSlicer.name,
+      useClass: LineSlicer,
     },
     {
       provide: CsvParser.name,
