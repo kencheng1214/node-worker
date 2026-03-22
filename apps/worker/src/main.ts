@@ -10,6 +10,8 @@ async function bootstrap() {
     pipeline: [
       { name: 'FileReader', options: { path: 'timezone.csv' } },
       { name: 'LineSlicer', options: { last: 56 } },
+      { name: 'CsvParser', options: { columns: true } },
+      { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
       {
         name: 'Broadcaster',
         options: {
@@ -20,6 +22,18 @@ async function bootstrap() {
                 {
                   name: 'FileWriter',
                   options: { path: 'timezone.txt' },
+                },
+              ],
+            },
+            {
+              pipeline: [
+                {
+                  name: 'Batcher',
+                  options: { size: 100 },
+                },
+                {
+                  name: 'Archiver',
+                  options: { path: 'timezone.zip', filename: 'timezone.{{index}}.txt' },
                 },
               ],
             },
