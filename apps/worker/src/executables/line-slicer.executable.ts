@@ -10,17 +10,17 @@ import { LineSlicerOptions } from './line-slicer.schema';
 export class LineSlicer implements Executable {
   execute(input: NodeJS.ReadableStream, options?: LineSlicerOptions) {
     const EOL_BUFFER = Buffer.from(EOL);
-    const { first = 0, last = 0 } = options ?? {};
+    const { skipFirst = 0, skipLast = 0 } = options ?? {};
     const writable = split((string) => Buffer.from(string));
     const readable = Transform.from(async function* (lines: AsyncIterable<Buffer>) {
       const window: Buffer[] = [];
       let index = 0;
 
       for await (const line of lines) {
-        if (index++ < first) continue;
+        if (index++ < skipFirst) continue;
 
         window.push(line);
-        if (window.length > last) yield Buffer.concat([window.shift(), EOL_BUFFER]);
+        if (window.length > skipLast) yield Buffer.concat([window.shift(), EOL_BUFFER]);
       }
     });
 

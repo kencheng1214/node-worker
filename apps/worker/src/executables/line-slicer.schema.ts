@@ -4,8 +4,8 @@ export const LineSlicerSchema = z.object({
   name: z.literal('LineSlicer'),
   options: z
     .object({
-      first: z.number().optional(),
-      last: z.number().optional(),
+      skipFirst: z.number().optional(),
+      skipLast: z.number().optional(),
     })
     .optional(),
 });
