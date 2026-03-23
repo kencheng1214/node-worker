@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Specification } from './app.interface';
+import dayjs from 'dayjs';
+import { PipelineContext, Specification } from './app.interface';
 import { PipelineExecutorService } from './pipeline-executor.service';
 
 @Injectable()
@@ -7,6 +8,10 @@ export class AppService {
   constructor(private readonly pipelineExecutor: PipelineExecutorService) {}
 
   async run(specification: Specification) {
-    await this.pipelineExecutor.runPipeline(specification.pipeline);
+    const context: PipelineContext = {
+      asOfDate: dayjs().format('YYYY-MM-DD'),
+    };
+
+    await this.pipelineExecutor.runPipeline(specification.pipeline, undefined, context);
   }
 }
