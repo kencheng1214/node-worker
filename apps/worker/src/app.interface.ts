@@ -32,6 +32,7 @@ export type Specification = z.infer<typeof SpecificationSchema>;
 
 export interface PipelineContext {
   asOfDate: string;
+  [key: string]: unknown;
 }
 
 export interface Executable<Input = unknown, Output = unknown, Options = Record<string, unknown>> {
