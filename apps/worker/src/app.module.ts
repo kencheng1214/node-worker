@@ -20,24 +20,36 @@ import { PipelineExecutorService } from './pipeline-executor.service';
     AppService,
     PipelineExecutorService,
     {
-      provide: FileReader.name,
-      useClass: FileReader,
+      provide: Archiver.name,
+      useClass: Archiver,
     },
     {
-      provide: LineSlicer.name,
-      useClass: LineSlicer,
+      provide: Batcher.name,
+      useClass: Batcher,
+    },
+    {
+      provide: Broadcaster.name,
+      useClass: Broadcaster,
     },
     {
       provide: CsvParser.name,
       useClass: CsvParser,
     },
     {
-      provide: Stringifier.name,
-      useClass: Stringifier,
+      provide: FileReader.name,
+      useClass: FileReader,
     },
     {
-      provide: Batcher.name,
-      useClass: Batcher,
+      provide: FileWriter.name,
+      useClass: FileWriter,
+    },
+    {
+      provide: Inspector.name,
+      useClass: Inspector,
+    },
+    {
+      provide: LineSlicer.name,
+      useClass: LineSlicer,
     },
     {
       provide: Packer.name,
@@ -48,20 +60,8 @@ import { PipelineExecutorService } from './pipeline-executor.service';
       useClass: StdoutWriter,
     },
     {
-      provide: FileWriter.name,
-      useClass: FileWriter,
-    },
-    {
-      provide: Archiver.name,
-      useClass: Archiver,
-    },
-    {
-      provide: Broadcaster.name,
-      useClass: Broadcaster,
-    },
-    {
-      provide: Inspector.name,
-      useClass: Inspector,
+      provide: Stringifier.name,
+      useClass: Stringifier,
     },
   ],
 })
