@@ -37,9 +37,6 @@ async function bootstrap() {
                 },
               ],
             },
-            {
-              pipeline: [{ name: 'StdoutWriter' }],
-            },
           ],
         },
       },
