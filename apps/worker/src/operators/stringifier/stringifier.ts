@@ -2,12 +2,12 @@ import { EOL } from 'node:os';
 import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import Handlebars from 'handlebars';
-import { Executable } from '../../app.interface';
+import { Executable, PipelineContext } from '../../app.interface';
 import { StringifierOptions } from './stringifier.schema';
 
 @Injectable()
 export class Stringifier implements Executable {
-  execute(input: NodeJS.ReadableStream, options?: StringifierOptions) {
+  execute(input: NodeJS.ReadableStream, context: PipelineContext, options?: StringifierOptions) {
     const template = options?.format ? Handlebars.compile(options.format) : undefined;
 
     return input.pipe(

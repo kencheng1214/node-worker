@@ -3,12 +3,12 @@ import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import pumpify from 'pumpify';
 import split from 'split2';
-import { Executable } from '../../app.interface';
+import { Executable, PipelineContext } from '../../app.interface';
 import { LineSlicerOptions } from './line-slicer.schema';
 
 @Injectable()
 export class LineSlicer implements Executable {
-  execute(input: NodeJS.ReadableStream, options?: LineSlicerOptions) {
+  execute(input: NodeJS.ReadableStream, context: PipelineContext, options?: LineSlicerOptions) {
     const EOL_BUFFER = Buffer.from(EOL);
     const { skipFirst = 0, skipLast = 0 } = options ?? {};
     const writable = split((string) => Buffer.from(string));

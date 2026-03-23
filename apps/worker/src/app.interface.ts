@@ -35,5 +35,5 @@ export interface PipelineContext {
 }
 
 export interface Executable<Input = unknown, Output = unknown, Options = Record<string, unknown>> {
-  execute(input: Input, options?: Options, context?: PipelineContext): Output | Promise<Output>;
+  execute(input: Input, context: PipelineContext, options?: Options): Output | Promise<Output>;
 }

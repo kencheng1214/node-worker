@@ -1,7 +1,7 @@
 import { PassThrough } from 'node:stream';
 import { finished } from 'node:stream/promises';
 import { Injectable } from '@nestjs/common';
-import { Executable } from '../../app.interface';
+import { Executable, PipelineContext } from '../../app.interface';
 import { PipelineExecutorService } from '../../pipeline-executor.service';
 import { BroadcasterOptions } from './broadcaster.schema';
 
@@ -9,10 +9,10 @@ import { BroadcasterOptions } from './broadcaster.schema';
 export class Broadcaster implements Executable {
   constructor(private readonly pipelineExecutor: PipelineExecutorService) {}
 
-  async execute(input: NodeJS.ReadableStream, options: BroadcasterOptions) {
+  async execute(input: NodeJS.ReadableStream, context: PipelineContext, options: BroadcasterOptions) {
     const passThroughs = options.branches.map(() => new PassThrough({ objectMode: true }));
     const executions = options.branches.map((branch, index) =>
-      this.pipelineExecutor.runPipeline(branch.pipeline, passThroughs[index]),
+      this.pipelineExecutor.runPipeline(branch.pipeline, passThroughs[index], context),
     );
     const broadcast = async () => {
       try {
