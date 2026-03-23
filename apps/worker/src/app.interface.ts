@@ -31,7 +31,7 @@ export const SpecificationSchema = z.object({
 export type Specification = z.infer<typeof SpecificationSchema>;
 
 export interface PipelineContext {
-  asOfDate: string;
+  startedAt: Date;
   [key: string]: unknown;
 }
 

@@ -10,8 +10,9 @@ export class AppService {
   constructor(private readonly pipelineExecutor: PipelineExecutorService) {}
 
   async run(specification: Specification) {
+    const startedAt = dayjs();
     const context: PipelineContext = {
-      asOfDate: dayjs().format('YYYY-MM-DD'),
+      startedAt: startedAt.toDate(),
     };
 
     this.logger.debug(context);
