@@ -1,0 +1,7 @@
+services:
+  sftp:
+    image: atmoz/sftp
+    container_name: sftp
+    ports:
+      - 2222:22
+    command: user:pass

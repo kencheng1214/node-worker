@@ -7,6 +7,9 @@ async function bootstrap() {
   const service = app.get(AppService);
 
   await service.run({
+    credentials: {
+      sftp: { host: 'localhost', port: 2222, username: 'user', password: 'pass' },
+    },
     pipeline: [
       { name: 'FileReader', options: { path: 'timezone.csv' } },
       { name: 'LineSlicer', options: { skipLast: 56 } },
@@ -34,6 +37,17 @@ async function bootstrap() {
                 {
                   name: 'Archiver',
                   options: { path: 'timezone.zip', filename: 'timezone.{{index}}.txt' },
+                },
+              ],
+            },
+            {
+              pipeline: [
+                {
+                  name: 'Packer',
+                },
+                {
+                  name: 'SftpWriter',
+                  options: { credential: 'sftp' },
                 },
               ],
             },

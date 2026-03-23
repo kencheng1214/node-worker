@@ -8,21 +8,22 @@ import { FileWriterSchema } from './operators/file-writer/file-writer.schema';
 import { InspectorSchema } from './operators/inspector/inspector.schema';
 import { LineSlicerSchema } from './operators/line-slicer/line-slicer.schema';
 import { PackerSchema } from './operators/packer/packer.schema';
+import { SftpWriterSchema } from './operators/sftp-writer/sftp-writer.schema';
 import { StdoutWriterSchema } from './operators/stdout-writer/stdout-writer.schema';
 import { StringifierSchema } from './operators/stringifier/stringifier.schema';
 
 export const SOURCE = [FileReaderSchema] as const;
 
 export const TRANSFORM = [
-  LineSlicerSchema,
-  CsvParserSchema,
-  StringifierSchema,
   BatcherSchema,
-  PackerSchema,
+  CsvParserSchema,
   InspectorSchema,
+  LineSlicerSchema,
+  PackerSchema,
+  StringifierSchema,
 ] as const;
 
-export const SINK = [StdoutWriterSchema, FileWriterSchema, ArchiverSchema] as const;
+export const SINK = [ArchiverSchema, FileWriterSchema, SftpWriterSchema, StdoutWriterSchema] as const;
 
 export const SpecificationSchema = z.object({
   credentials: z.record(z.string(), z.unknown()).optional(),
@@ -32,6 +33,7 @@ export const SpecificationSchema = z.object({
 export type Specification = z.infer<typeof SpecificationSchema>;
 
 export interface PipelineContext {
+  credentials?: Record<string, unknown>;
   startedAt: Date;
   [key: string]: unknown;
 }
