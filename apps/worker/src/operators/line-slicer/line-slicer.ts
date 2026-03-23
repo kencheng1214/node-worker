@@ -3,7 +3,7 @@ import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import pumpify from 'pumpify';
 import split from 'split2';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { LineSlicerOptions } from './line-slicer.schema';
 
 @Injectable()

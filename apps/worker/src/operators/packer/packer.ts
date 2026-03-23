@@ -1,6 +1,6 @@
 import { Readable } from 'node:stream';
 import { Injectable } from '@nestjs/common';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { PackerOptions } from './packer.schema';
 
 @Injectable()

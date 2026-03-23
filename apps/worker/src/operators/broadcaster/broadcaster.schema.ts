@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { SINK, SOURCE, TRANSFORM } from '../app.interface';
+import { SINK, SOURCE, TRANSFORM } from '../../app.interface';
 
 export const BroadcasterSchema = z.object({
   name: z.literal('Broadcaster'),

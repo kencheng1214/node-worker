@@ -1,6 +1,6 @@
 import { finished } from 'node:stream/promises';
 import { Injectable } from '@nestjs/common';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { StdoutWriterOptions } from './stdout-writer.schema';
 
 @Injectable()

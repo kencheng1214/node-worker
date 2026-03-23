@@ -1,7 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 import { Injectable } from '@nestjs/common';
 import Handlebars from 'handlebars';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { FileWriterOptions } from './file-writer.schema';
 
 @Injectable()

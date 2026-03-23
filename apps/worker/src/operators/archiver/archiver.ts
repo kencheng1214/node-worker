@@ -2,7 +2,7 @@ import { createWriteStream } from 'node:fs';
 import { Injectable } from '@nestjs/common';
 import archiver from 'archiver';
 import Handlebars from 'handlebars';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { ArchiverOptions } from './archiver.schema';
 
 @Injectable()

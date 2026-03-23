@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PassThrough } from 'stream';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { InspectorOptions } from './inspector.schema';
 
 @Injectable()

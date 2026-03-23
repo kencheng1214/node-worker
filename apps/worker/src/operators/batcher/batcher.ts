@@ -1,6 +1,6 @@
 import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { BatcherOptions } from './batcher.schema';
 
 @Injectable()

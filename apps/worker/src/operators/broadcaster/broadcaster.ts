@@ -1,8 +1,8 @@
 import { PassThrough } from 'node:stream';
 import { finished } from 'node:stream/promises';
 import { Injectable } from '@nestjs/common';
-import { Executable } from '../app.interface';
-import { PipelineExecutorService } from '../pipeline-executor.service';
+import { Executable } from '../../app.interface';
+import { PipelineExecutorService } from '../../pipeline-executor.service';
 import { BroadcasterOptions } from './broadcaster.schema';
 
 @Injectable()

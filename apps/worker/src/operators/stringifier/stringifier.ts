@@ -2,7 +2,7 @@ import { EOL } from 'node:os';
 import { Transform } from 'node:stream';
 import { Injectable } from '@nestjs/common';
 import Handlebars from 'handlebars';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { StringifierOptions } from './stringifier.schema';
 
 @Injectable()

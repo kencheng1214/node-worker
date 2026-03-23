@@ -1,6 +1,6 @@
 import { createReadStream } from 'node:fs';
 import { Injectable } from '@nestjs/common';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { FileReaderOptions } from './file-reader.schema';
 
 @Injectable()

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { parse } from 'csv';
-import { Executable } from '../app.interface';
+import { Executable } from '../../app.interface';
 import { CsvParserOptions } from './csv-parser.schema';
 
 @Injectable()

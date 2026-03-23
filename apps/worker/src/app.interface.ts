@@ -1,15 +1,17 @@
 import { z } from 'zod';
-import { ArchiverSchema } from './executables/archiver.schema';
-import { BatcherSchema } from './executables/batcher.schema';
-import { BroadcasterSchema } from './executables/broadcaster.schema';
-import { CsvParserSchema } from './executables/csv-parser.schema';
-import { FileReaderSchema } from './executables/file-reader.schema';
-import { FileWriterSchema } from './executables/file-writer.schema';
-import { InspectorSchema } from './executables/inspector.schema';
-import { LineSlicerSchema } from './executables/line-slicer.schema';
-import { PackerSchema } from './executables/packer.schema';
-import { StdoutWriterSchema } from './executables/stdout-writer.schema';
-import { StringifierSchema } from './executables/stringifier.schema';
+import {
+  ArchiverSchema,
+  BatcherSchema,
+  BroadcasterSchema,
+  CsvParserSchema,
+  FileReaderSchema,
+  FileWriterSchema,
+  InspectorSchema,
+  LineSlicerSchema,
+  PackerSchema,
+  StdoutWriterSchema,
+  StringifierSchema,
+} from './operators';
 
 export const SOURCE = [FileReaderSchema] as const;
 
