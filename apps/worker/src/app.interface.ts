@@ -25,7 +25,6 @@ export const TRANSFORM = [
 export const SINK = [StdoutWriterSchema, FileWriterSchema, ArchiverSchema] as const;
 
 export const SpecificationSchema = z.object({
-  credentials: z.record(z.string(), z.unknown()).optional(),
   pipeline: z.array(z.discriminatedUnion('name', [...SOURCE, ...TRANSFORM, ...SINK, BroadcasterSchema])),
 });
 
