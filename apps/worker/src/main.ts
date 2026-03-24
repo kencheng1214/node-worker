@@ -9,14 +9,15 @@ async function bootstrap() {
   await service.run(
     {
       pipeline: [
-        { name: 'PathGenerator', options: { pattern: ['*.csv'], let: 'path' } },
+        { name: 'PathGenerator', options: { pattern: ['*.csv'] } },
         {
           name: 'Replicator',
           options: {
+            let: 'path',
             pipeline: [
               { name: 'FileReader', options: { path: '{{path}}' } },
               { name: 'Inspector' },
-              { name: 'LineSlicer', options: { skipLast: 56 } },
+              { name: 'LineSlicer', options: { skipLast: 1 } },
               { name: 'CsvParser', options: { columns: true } },
               { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
               {
@@ -28,7 +29,7 @@ async function bootstrap() {
                         { name: 'Packer' },
                         {
                           name: 'FileWriter',
-                          options: { path: 'timezone.txt' },
+                          options: { path: '{{path}}.txt' },
                         },
                       ],
                     },

@@ -10,6 +10,6 @@ export class FileWriter implements Executable {
     const template = Handlebars.compile(options.path);
     let index = 0;
 
-    for await (const chunk of input) await writeFile(template({ index: ++index }), chunk);
+    for await (const chunk of input) await writeFile(template({ index: ++index, ...context }), chunk);
   }
 }

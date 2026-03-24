@@ -13,8 +13,10 @@ export class Replicator implements Executable {
     const passThrough = new PassThrough({ objectMode: true });
     const replicate = async () => {
       try {
-        for await (const chunk of input)
+        for await (const chunk of input) {
+          context[options.let] = chunk;
           await this.pipelineService.runPipeline(options.pipeline, Readable.from([chunk]), context);
+        }
         passThrough.end();
       } catch (error) {
         passThrough.destroy(error);

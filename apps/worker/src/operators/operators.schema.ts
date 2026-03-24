@@ -36,6 +36,7 @@ export type Operator =
   | {
       name: 'Replicator';
       options: {
+        let?: string;
         pipeline: Operator[];
       };
     };
