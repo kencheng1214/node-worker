@@ -9,6 +9,7 @@ export type Specification = z.infer<typeof SpecificationSchema>;
 
 export interface PipelineContext {
   startedAt: Date;
+  render: <T = unknown>(template: string, data?: T) => string;
   [key: string]: unknown;
 }
 
