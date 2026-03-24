@@ -12,7 +12,6 @@ export class AppService {
   async run(specification: Specification) {
     const startedAt = dayjs();
     const context: PipelineContext = {
-      credentials: specification.credentials,
       startedAt: startedAt.toDate(),
     };
 

@@ -9,7 +9,6 @@ import { FileWriter } from './operators/file-writer/file-writer';
 import { Inspector } from './operators/inspector/inspector';
 import { LineSlicer } from './operators/line-slicer/line-slicer';
 import { Packer } from './operators/packer/packer';
-import { SftpWriter } from './operators/sftp-writer/sftp-writer';
 import { StdoutWriter } from './operators/stdout-writer/stdout-writer';
 import { Stringifier } from './operators/stringifier/stringifier';
 import { PipelineExecutorService } from './pipeline-executor.service';
@@ -29,7 +28,6 @@ import { registerOperators } from './utils/register-operators';
       Inspector,
       LineSlicer,
       Packer,
-      SftpWriter,
       StdoutWriter,
       Stringifier,
     ),
