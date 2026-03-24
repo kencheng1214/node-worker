@@ -9,34 +9,43 @@ async function bootstrap() {
   await service.run(
     {
       pipeline: [
-        { name: 'FileReader', options: { path: 'timezone.csv' } },
-        { name: 'LineSlicer', options: { skipLast: 56 } },
-        { name: 'CsvParser', options: { columns: true } },
-        { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
+        { name: 'PathGenerator', options: { pattern: ['*.csv'], let: 'path' } },
         {
-          name: 'Broadcaster',
+          name: 'Replicator',
           options: {
-            branches: [
+            pipeline: [
+              { name: 'FileReader', options: { path: '{{path}}' } },
+              { name: 'Inspector' },
+              { name: 'LineSlicer', options: { skipLast: 56 } },
+              { name: 'CsvParser', options: { columns: true } },
+              { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
               {
-                pipeline: [
-                  { name: 'Packer' },
-                  {
-                    name: 'FileWriter',
-                    options: { path: 'timezone.txt' },
-                  },
-                ],
-              },
-              {
-                pipeline: [
-                  {
-                    name: 'Batcher',
-                    options: { size: 100 },
-                  },
-                  {
-                    name: 'Archiver',
-                    options: { path: 'timezone.zip', filename: 'timezone.{{index}}.txt' },
-                  },
-                ],
+                name: 'Broadcaster',
+                options: {
+                  branches: [
+                    {
+                      pipeline: [
+                        { name: 'Packer' },
+                        {
+                          name: 'FileWriter',
+                          options: { path: 'timezone.txt' },
+                        },
+                      ],
+                    },
+                    {
+                      pipeline: [
+                        {
+                          name: 'Batcher',
+                          options: { size: 100 },
+                        },
+                        {
+                          name: 'Archiver',
+                          options: { path: 'timezone.zip', filename: 'timezone.{{index}}.txt' },
+                        },
+                      ],
+                    },
+                  ],
+                },
               },
             ],
           },
