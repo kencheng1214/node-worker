@@ -1,3 +1,4 @@
+import Handlebars from 'handlebars';
 import { z } from 'zod';
 import { OperatorSchema } from './operators/operators.schema';
 
@@ -9,7 +10,7 @@ export type Specification = z.infer<typeof SpecificationSchema>;
 
 export interface PipelineContext {
   startedAt: Date;
-  render: <T = unknown>(template: string, data?: T) => string;
+  render: <T = unknown>(template: Handlebars.TemplateDelegate, data?: T) => string;
   [key: string]: unknown;
 }
 

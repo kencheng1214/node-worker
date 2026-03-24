@@ -1,6 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
 import dayjs from 'dayjs';
-import Handlebars from 'handlebars';
 import { PipelineContext, Specification } from './app.interface';
 import { PipelineService } from './pipeline.service';
 
@@ -17,11 +16,7 @@ export class AppService {
       render: function (template, data) {
         const { render, ...$ } = this as PipelineContext;
 
-        return Handlebars.compile(template)({
-          ...(data ?? {}),
-          ...Object.fromEntries(args.map((arg, index) => [`$${++index}`, arg])),
-          $,
-        });
+        return template({ ...(data ?? {}), ...Object.fromEntries(args.map((arg, index) => [`$${++index}`, arg])), $ });
       },
     };
 

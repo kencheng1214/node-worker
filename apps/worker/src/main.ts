@@ -15,7 +15,7 @@ async function bootstrap() {
           options: {
             let: 'path',
             pipeline: [
-              { name: 'FileReader', options: { path: '{{path}}' } },
+              { name: 'FileReader', options: { path: '{{$.path}}' } },
               { name: 'LineSlicer', options: { skipLast: 1 } },
               { name: 'CsvParser', options: { columns: true } },
               { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
@@ -28,7 +28,7 @@ async function bootstrap() {
                         { name: 'Packer' },
                         {
                           name: 'FileWriter',
-                          options: { path: '{{path}}.txt' },
+                          options: { path: '{{$.path}}.txt' },
                         },
                       ],
                     },
@@ -40,7 +40,7 @@ async function bootstrap() {
                         },
                         {
                           name: 'Archiver',
-                          options: { path: '{{path}}.zip', filename: 'timezone.{{index}}.txt' },
+                          options: { path: '{{$.path}}.zip', filename: 'timezone.{{index}}.txt' },
                         },
                       ],
                     },

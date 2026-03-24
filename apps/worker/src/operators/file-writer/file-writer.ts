@@ -7,9 +7,9 @@ import { FileWriterOptions } from './file-writer.schema';
 @Injectable()
 export class FileWriter implements Executable {
   async execute(input: NodeJS.ReadableStream, context: PipelineContext, options: FileWriterOptions) {
-    const template = Handlebars.compile(options.path);
+    const pathTemplate = Handlebars.compile(options.path);
     let index = 0;
 
-    for await (const chunk of input) await writeFile(template({ index: ++index, ...context }), chunk);
+    for await (const chunk of input) await writeFile(context.render(pathTemplate, { index: ++index }), chunk);
   }
 }

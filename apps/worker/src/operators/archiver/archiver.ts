@@ -8,15 +8,14 @@ import { ArchiverOptions } from './archiver.schema';
 @Injectable()
 export class Archiver implements Executable {
   async execute(input: NodeJS.ReadableStream, context: PipelineContext, options?: ArchiverOptions) {
-    const pathTemplate = Handlebars.compile(options.path);
-    const filenameTemplate = options.filename ? Handlebars.compile(options.filename) : undefined;
-    const writeStream = createWriteStream(pathTemplate(context));
+    const template = options.filename ? Handlebars.compile(options.filename) : undefined;
+    const writeStream = createWriteStream(context.render(Handlebars.compile(options.path)));
     const archive = archiver(options.format ?? 'zip');
     let index = 0;
 
     archive.pipe(writeStream);
     for await (const chunk of input)
-      archive.append(chunk, { name: filenameTemplate?.({ index: ++index, ...context }) ?? String(++index) });
+      archive.append(chunk, { name: template ? context.render(template, { index: ++index }) : String(++index) });
     await archive.finalize();
 
     await new Promise<void>((resolve, reject) => writeStream.on('close', resolve).on('error', reject));
