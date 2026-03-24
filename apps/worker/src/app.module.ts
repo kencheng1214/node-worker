@@ -15,6 +15,7 @@ import { Replicator } from './operators/replicator/replicator';
 import { StdoutWriter } from './operators/stdout-writer/stdout-writer';
 import { Stringifier } from './operators/stringifier/stringifier';
 import { PipelineService } from './pipeline.service';
+import { registerHandlebars } from './utils/register-handlebars';
 import { registerOperators } from './utils/register-operators';
 
 @Module({
@@ -39,4 +40,8 @@ import { registerOperators } from './utils/register-operators';
     ),
   ],
 })
-export class AppModule {}
+export class AppModule {
+  onModuleInit() {
+    registerHandlebars();
+  }
+}
