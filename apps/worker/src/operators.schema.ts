@@ -10,6 +10,7 @@ import { InspectorSchema } from './operators/inspector/inspector.schema';
 import { LineSlicerSchema } from './operators/line-slicer/line-slicer.schema';
 import { PackerSchema } from './operators/packer/packer.schema';
 import { PathGeneratorSchema } from './operators/path-generator/path-generator.schema';
+import { ReplicatorSchema } from './operators/replicator/replicator.schema';
 import { StdoutWriterSchema } from './operators/stdout-writer/stdout-writer.schema';
 import { StringifierSchema } from './operators/stringifier/stringifier.schema';
 
@@ -31,6 +32,12 @@ export type Operator =
       options: {
         branches: { pipeline: Operator[] }[];
       };
+    }
+  | {
+      name: 'Replicator';
+      options: {
+        pipeline: Operator[];
+      };
     };
 
 export const OperatorSchema: z.ZodType<Operator> = z.discriminatedUnion('name', [
@@ -47,4 +54,5 @@ export const OperatorSchema: z.ZodType<Operator> = z.discriminatedUnion('name', 
   StdoutWriterSchema,
   StringifierSchema,
   BroadcasterSchema,
+  ReplicatorSchema,
 ]);
