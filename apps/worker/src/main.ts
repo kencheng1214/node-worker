@@ -10,13 +10,13 @@ async function bootstrap() {
     {
       pipeline: [
         { name: 'PathGenerator', options: { pattern: ['*.csv'] } },
+        { name: 'Inspector' },
         {
           name: 'Replicator',
           options: {
             let: 'path',
             pipeline: [
               { name: 'FileReader', options: { path: '{{path}}' } },
-              { name: 'Inspector' },
               { name: 'LineSlicer', options: { skipLast: 1 } },
               { name: 'CsvParser', options: { columns: true } },
               { name: 'Stringifier', options: { format: 'The timezone of {{Label}} is {{Value}}' } },
@@ -53,7 +53,7 @@ async function bootstrap() {
         },
         {
           name: 'Housekeeper',
-          options: { pattern: 'timezone.@(txt|zip)' },
+          options: { pattern: 'timezone?(-)*.@(txt|zip)' },
         },
       ],
     },
