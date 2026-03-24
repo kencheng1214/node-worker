@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const HousekeeperSchema = z.object({
   name: z.literal('Housekeeper'),
   options: z.object({
-    path: z.string(),
+    pattern: z.union([z.string(), z.array(z.string())]),
   }),
 });
 

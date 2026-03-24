@@ -43,11 +43,7 @@ async function bootstrap() {
         },
         {
           name: 'Housekeeper',
-          options: { path: 'timezone.txt' },
-        },
-        {
-          name: 'Housekeeper',
-          options: { path: 'timezone.zip' },
+          options: { pattern: 'timezone.{txt,zip}' },
         },
       ],
     },
