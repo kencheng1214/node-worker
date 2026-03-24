@@ -9,21 +9,22 @@ import { HousekeeperSchema } from './operators/housekeeper/housekeeper.schema';
 import { InspectorSchema } from './operators/inspector/inspector.schema';
 import { LineSlicerSchema } from './operators/line-slicer/line-slicer.schema';
 import { PackerSchema } from './operators/packer/packer.schema';
+import { PathGeneratorSchema } from './operators/path-generator/path-generator.schema';
 import { StdoutWriterSchema } from './operators/stdout-writer/stdout-writer.schema';
 import { StringifierSchema } from './operators/stringifier/stringifier.schema';
 
-export const SOURCE = [FileReaderSchema] as const;
+export const SOURCE = [FileReaderSchema, PathGeneratorSchema] as const;
 
 export const TRANSFORM = [
-  LineSlicerSchema,
-  CsvParserSchema,
-  StringifierSchema,
   BatcherSchema,
-  PackerSchema,
+  CsvParserSchema,
   InspectorSchema,
+  LineSlicerSchema,
+  PackerSchema,
+  StringifierSchema,
 ] as const;
 
-export const SINK = [StdoutWriterSchema, FileWriterSchema, ArchiverSchema] as const;
+export const SINK = [ArchiverSchema, FileWriterSchema, StdoutWriterSchema] as const;
 
 export const CONTROL_FLOW = [BroadcasterSchema] as const;
 

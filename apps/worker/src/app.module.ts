@@ -10,6 +10,7 @@ import { Housekeeper } from './operators/housekeeper/housekeeper';
 import { Inspector } from './operators/inspector/inspector';
 import { LineSlicer } from './operators/line-slicer/line-slicer';
 import { Packer } from './operators/packer/packer';
+import { PathGenerator } from './operators/path-generator/path-generator';
 import { StdoutWriter } from './operators/stdout-writer/stdout-writer';
 import { Stringifier } from './operators/stringifier/stringifier';
 import { PipelineExecutorService } from './pipeline-executor.service';
@@ -30,6 +31,7 @@ import { registerOperators } from './utils/register-operators';
       Inspector,
       LineSlicer,
       Packer,
+      PathGenerator,
       StdoutWriter,
       Stringifier,
     ),
