@@ -10,7 +10,6 @@ async function bootstrap() {
     {
       pipeline: [
         { name: 'PathGenerator', options: { pattern: ['*.csv'] } },
-        { name: 'Inspector' },
         {
           name: 'Replicator',
           options: {
@@ -41,7 +40,7 @@ async function bootstrap() {
                         },
                         {
                           name: 'Archiver',
-                          options: { path: 'timezone.zip', filename: 'timezone.{{index}}.txt' },
+                          options: { path: '{{path}}.zip', filename: 'timezone.{{index}}.txt' },
                         },
                       ],
                     },
