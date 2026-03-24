@@ -9,10 +9,11 @@ export class AppService {
 
   constructor(private readonly pipelineExecutor: PipelineExecutorService) {}
 
-  async run(specification: Specification) {
+  async run(specification: Specification, args: string[]) {
     const startedAt = dayjs();
     const context: PipelineContext = {
       startedAt: startedAt.toDate(),
+      ...Object.fromEntries(args.map((arg, index) => [`$${++index}`, arg])),
     };
 
     this.logger.debug(context);
