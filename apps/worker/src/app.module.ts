@@ -14,13 +14,13 @@ import { PathGenerator } from './operators/path-generator/path-generator';
 import { Replicator } from './operators/replicator/replicator';
 import { StdoutWriter } from './operators/stdout-writer/stdout-writer';
 import { Stringifier } from './operators/stringifier/stringifier';
-import { PipelineExecutorService } from './pipeline-executor.service';
+import { PipelineService } from './pipeline.service';
 import { registerOperators } from './utils/register-operators';
 
 @Module({
   providers: [
     AppService,
-    PipelineExecutorService,
+    PipelineService,
     ...registerOperators(
       Archiver,
       Batcher,

@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { Executable, PipelineContext, Specification } from './app.interface';
 
 @Injectable()
-export class PipelineExecutorService {
+export class PipelineService {
   constructor(private readonly moduleRef: ModuleRef) {}
 
   async runPipeline(pipeline: Specification['pipeline'], input = undefined, context: PipelineContext) {

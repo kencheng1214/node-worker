@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { OperatorSchema } from '../../operators.schema';
+import { OperatorSchema } from '../operators.schema';
 
 export const BroadcasterSchema = z.object({
   name: z.literal('Broadcaster'),

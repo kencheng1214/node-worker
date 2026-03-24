@@ -1,13 +1,13 @@
 import { Injectable, Logger } from '@nestjs/common';
 import dayjs from 'dayjs';
 import { PipelineContext, Specification } from './app.interface';
-import { PipelineExecutorService } from './pipeline-executor.service';
+import { PipelineService } from './pipeline.service';
 
 @Injectable()
 export class AppService {
   private readonly logger = new Logger(AppService.name);
 
-  constructor(private readonly pipelineExecutor: PipelineExecutorService) {}
+  constructor(private readonly pipelineService: PipelineService) {}
 
   async run(specification: Specification, args: string[]) {
     const startedAt = dayjs();
@@ -17,6 +17,6 @@ export class AppService {
     };
 
     this.logger.debug(context);
-    await this.pipelineExecutor.runPipeline(specification.pipeline, undefined, context);
+    await this.pipelineService.runPipeline(specification.pipeline, undefined, context);
   }
 }

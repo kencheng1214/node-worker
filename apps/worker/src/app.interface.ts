@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { OperatorSchema } from './operators.schema';
+import { OperatorSchema } from './operators/operators.schema';
 
 export const SpecificationSchema = z.object({
   pipeline: z.array(OperatorSchema),
