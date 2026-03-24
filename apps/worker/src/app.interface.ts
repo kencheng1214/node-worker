@@ -5,6 +5,7 @@ import { BroadcasterSchema } from './operators/broadcaster/broadcaster.schema';
 import { CsvParserSchema } from './operators/csv-parser/csv-parser.schema';
 import { FileReaderSchema } from './operators/file-reader/file-reader.schema';
 import { FileWriterSchema } from './operators/file-writer/file-writer.schema';
+import { HousekeeperSchema } from './operators/housekeeper/housekeeper.schema';
 import { InspectorSchema } from './operators/inspector/inspector.schema';
 import { LineSlicerSchema } from './operators/line-slicer/line-slicer.schema';
 import { PackerSchema } from './operators/packer/packer.schema';
@@ -24,8 +25,12 @@ export const TRANSFORM = [
 
 export const SINK = [StdoutWriterSchema, FileWriterSchema, ArchiverSchema] as const;
 
+export const CONTROL_FLOW = [BroadcasterSchema] as const;
+
+export const POST_ACTION = [HousekeeperSchema] as const;
+
 export const SpecificationSchema = z.object({
-  pipeline: z.array(z.discriminatedUnion('name', [...SOURCE, ...TRANSFORM, ...SINK, BroadcasterSchema])),
+  pipeline: z.array(z.discriminatedUnion('name', [...SOURCE, ...TRANSFORM, ...SINK, ...CONTROL_FLOW, ...POST_ACTION])),
 });
 
 export type Specification = z.infer<typeof SpecificationSchema>;

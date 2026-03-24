@@ -6,6 +6,7 @@ import { Broadcaster } from './operators/broadcaster/broadcaster';
 import { CsvParser } from './operators/csv-parser/csv-parser';
 import { FileReader } from './operators/file-reader/file-reader';
 import { FileWriter } from './operators/file-writer/file-writer';
+import { Housekeeper } from './operators/housekeeper/housekeeper';
 import { Inspector } from './operators/inspector/inspector';
 import { LineSlicer } from './operators/line-slicer/line-slicer';
 import { Packer } from './operators/packer/packer';
@@ -25,6 +26,7 @@ import { registerOperators } from './utils/register-operators';
       CsvParser,
       FileReader,
       FileWriter,
+      Housekeeper,
       Inspector,
       LineSlicer,
       Packer,

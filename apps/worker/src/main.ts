@@ -40,6 +40,14 @@ async function bootstrap() {
           ],
         },
       },
+      {
+        name: 'Housekeeper',
+        options: { path: 'timezone.txt' },
+      },
+      {
+        name: 'Housekeeper',
+        options: { path: 'timezone.zip' },
+      },
     ],
   });
   await app.close();
