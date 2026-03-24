@@ -10,6 +10,4 @@ export const LineSlicerSchema = z.object({
     .optional(),
 });
 
-export type LineSlicerStep = z.infer<typeof LineSlicerSchema>;
-
-export type LineSlicerOptions = LineSlicerStep['options'];
+export type LineSlicerOptions = z.infer<typeof LineSlicerSchema>['options'];

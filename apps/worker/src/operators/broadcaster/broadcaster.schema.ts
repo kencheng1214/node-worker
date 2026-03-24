@@ -12,6 +12,4 @@ export const BroadcasterSchema = z.object({
   }),
 });
 
-export type BroadcasterStep = z.infer<typeof BroadcasterSchema>;
-
-export type BroadcasterOptions = BroadcasterStep['options'];
+export type BroadcasterOptions = z.infer<typeof BroadcasterSchema>['options'];

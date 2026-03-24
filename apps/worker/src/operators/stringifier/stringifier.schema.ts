@@ -9,6 +9,4 @@ export const StringifierSchema = z.object({
     .optional(),
 });
 
-export type StringifierStep = z.infer<typeof StringifierSchema>;
-
-export type StringifierOptions = StringifierStep['options'];
+export type StringifierOptions = z.infer<typeof StringifierSchema>['options'];

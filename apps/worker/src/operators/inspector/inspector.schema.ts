@@ -5,6 +5,4 @@ export const InspectorSchema = z.object({
   options: z.object().optional(),
 });
 
-export type InspectorStep = z.infer<typeof InspectorSchema>;
-
-export type InspectorOptions = InspectorStep['options'];
+export type InspectorOptions = z.infer<typeof InspectorSchema>['options'];

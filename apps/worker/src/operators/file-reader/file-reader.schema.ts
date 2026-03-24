@@ -7,6 +7,4 @@ export const FileReaderSchema = z.object({
   }),
 });
 
-export type FileReaderStep = z.infer<typeof FileReaderSchema>;
-
-export type FileReaderOptions = FileReaderStep['options'];
+export type FileReaderOptions = z.infer<typeof FileReaderSchema>['options'];

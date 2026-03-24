@@ -7,6 +7,4 @@ export const FileWriterSchema = z.object({
   }),
 });
 
-export type FileWriterStep = z.infer<typeof FileWriterSchema>;
-
-export type FileWriterOptions = FileWriterStep['options'];
+export type FileWriterOptions = z.infer<typeof FileWriterSchema>['options'];

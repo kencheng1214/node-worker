@@ -7,6 +7,4 @@ export const HousekeeperSchema = z.object({
   }),
 });
 
-export type HousekeeperStep = z.infer<typeof HousekeeperSchema>;
-
-export type HousekeeperOptions = HousekeeperStep['options'];
+export type HousekeeperOptions = z.infer<typeof HousekeeperSchema>['options'];

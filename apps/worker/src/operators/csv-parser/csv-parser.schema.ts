@@ -9,6 +9,4 @@ export const CsvParserSchema = z.object({
     .optional(),
 });
 
-export type CsvParserStep = z.infer<typeof CsvParserSchema>;
-
-export type CsvParserOptions = CsvParserStep['options'];
+export type CsvParserOptions = z.infer<typeof CsvParserSchema>['options'];

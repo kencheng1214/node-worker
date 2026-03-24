@@ -7,6 +7,4 @@ export const PathGeneratorSchema = z.object({
   }),
 });
 
-export type PathGeneratorStep = z.infer<typeof PathGeneratorSchema>;
-
-export type PathGeneratorOptions = PathGeneratorStep['options'];
+export type PathGeneratorOptions = z.infer<typeof PathGeneratorSchema>['options'];

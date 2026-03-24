@@ -5,6 +5,4 @@ export const StdoutWriterSchema = z.object({
   options: z.object().optional(),
 });
 
-export type StdoutWriterStep = z.infer<typeof StdoutWriterSchema>;
-
-export type StdoutWriterOptions = StdoutWriterStep['options'];
+export type StdoutWriterOptions = z.infer<typeof StdoutWriterSchema>['options'];

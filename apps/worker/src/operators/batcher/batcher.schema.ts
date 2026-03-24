@@ -9,6 +9,4 @@ export const BatcherSchema = z.object({
     .optional(),
 });
 
-export type BatcherStep = z.infer<typeof BatcherSchema>;
-
-export type BatcherOptions = BatcherStep['options'];
+export type BatcherOptions = z.infer<typeof BatcherSchema>['options'];

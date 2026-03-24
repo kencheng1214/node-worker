@@ -5,6 +5,4 @@ export const PackerSchema = z.object({
   options: z.object().optional(),
 });
 
-export type PackerStep = z.infer<typeof PackerSchema>;
-
-export type PackerOptions = PackerStep['options'];
+export type PackerOptions = z.infer<typeof PackerSchema>['options'];

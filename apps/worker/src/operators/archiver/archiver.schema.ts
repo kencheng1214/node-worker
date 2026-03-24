@@ -9,6 +9,4 @@ export const ArchiverSchema = z.object({
   }),
 });
 
-export type ArchiverStep = z.infer<typeof ArchiverSchema>;
-
-export type ArchiverOptions = ArchiverStep['options'];
+export type ArchiverOptions = z.infer<typeof ArchiverSchema>['options'];
