@@ -3,6 +3,7 @@ import { ArchiverSchema } from './archiver/archiver.schema';
 import { BatcherSchema } from './batcher/batcher.schema';
 import { BroadcasterSchema } from './broadcaster/broadcaster.schema';
 import { CsvParserSchema } from './csv-parser/csv-parser.schema';
+import { DuckDBExecutorSchema } from './duckdb-executor/duckdb-executor.schema';
 import { FileReaderSchema } from './file-reader/file-reader.schema';
 import { FileWriterSchema } from './file-writer/file-writer.schema';
 import { HousekeeperSchema } from './housekeeper/housekeeper.schema';
@@ -11,7 +12,6 @@ import { IteratorSchema } from './iterator/iterator.schema';
 import { LineSlicerSchema } from './line-slicer/line-slicer.schema';
 import { PackerSchema } from './packer/packer.schema';
 import { PathGeneratorSchema } from './path-generator/path-generator.schema';
-import { SqlExecutorSchema } from './sql-executor/sql-executor.schema';
 import { StdoutWriterSchema } from './stdout-writer/stdout-writer.schema';
 import { StringifierSchema } from './stringifier/stringifier.schema';
 
@@ -19,6 +19,7 @@ export type Operator =
   | z.infer<typeof ArchiverSchema>
   | z.infer<typeof BatcherSchema>
   | z.infer<typeof CsvParserSchema>
+  | z.infer<typeof DuckDBExecutorSchema>
   | z.infer<typeof FileReaderSchema>
   | z.infer<typeof FileWriterSchema>
   | z.infer<typeof HousekeeperSchema>
@@ -26,7 +27,6 @@ export type Operator =
   | z.infer<typeof LineSlicerSchema>
   | z.infer<typeof PackerSchema>
   | z.infer<typeof PathGeneratorSchema>
-  | z.infer<typeof SqlExecutorSchema>
   | z.infer<typeof StdoutWriterSchema>
   | z.infer<typeof StringifierSchema>
   | {
@@ -48,6 +48,7 @@ export const OperatorSchema: z.ZodType<Operator> = z.discriminatedUnion('name', 
   BatcherSchema,
   BroadcasterSchema,
   CsvParserSchema,
+  DuckDBExecutorSchema,
   FileReaderSchema,
   FileWriterSchema,
   HousekeeperSchema,
@@ -56,7 +57,6 @@ export const OperatorSchema: z.ZodType<Operator> = z.discriminatedUnion('name', 
   LineSlicerSchema,
   PackerSchema,
   PathGeneratorSchema,
-  SqlExecutorSchema,
   StdoutWriterSchema,
   StringifierSchema,
 ]);

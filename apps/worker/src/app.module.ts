@@ -4,6 +4,7 @@ import { Archiver } from './operators/archiver/archiver';
 import { Batcher } from './operators/batcher/batcher';
 import { Broadcaster } from './operators/broadcaster/broadcaster';
 import { CsvParser } from './operators/csv-parser/csv-parser';
+import { DuckDBExecutor } from './operators/duckdb-executor/duckdb-executor';
 import { FileReader } from './operators/file-reader/file-reader';
 import { FileWriter } from './operators/file-writer/file-writer';
 import { Housekeeper } from './operators/housekeeper/housekeeper';
@@ -12,7 +13,6 @@ import { Iterator } from './operators/iterator/iterator';
 import { LineSlicer } from './operators/line-slicer/line-slicer';
 import { Packer } from './operators/packer/packer';
 import { PathGenerator } from './operators/path-generator/path-generator';
-import { SqlExecutor } from './operators/sql-executor/sql-executor';
 import { StdoutWriter } from './operators/stdout-writer/stdout-writer';
 import { Stringifier } from './operators/stringifier/stringifier';
 import { PipelineService } from './pipeline.service';
@@ -28,6 +28,7 @@ import { registerOperators } from './utils/register-operators';
       Batcher,
       Broadcaster,
       CsvParser,
+      DuckDBExecutor,
       FileReader,
       FileWriter,
       Housekeeper,
@@ -36,7 +37,6 @@ import { registerOperators } from './utils/register-operators';
       LineSlicer,
       Packer,
       PathGenerator,
-      SqlExecutor,
       StdoutWriter,
       Stringifier,
     ),
