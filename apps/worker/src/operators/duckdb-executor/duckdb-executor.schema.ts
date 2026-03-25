@@ -3,6 +3,7 @@ import { z } from 'zod';
 export const DuckDBExecutorSchema = z.object({
   name: z.literal('DuckDBExecutor'),
   options: z.object({
+    connection: z.string(),
     sql: z.string(),
   }),
 });
