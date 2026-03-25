@@ -11,7 +11,7 @@ async function bootstrap() {
       pipeline: [
         { name: 'PathGenerator', options: { pattern: ['*.csv'] } },
         {
-          name: 'Replicator',
+          name: 'Iterator',
           options: {
             let: 'path',
             pipeline: [

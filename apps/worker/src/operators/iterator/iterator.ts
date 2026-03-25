@@ -3,15 +3,15 @@ import { finished } from 'node:stream/promises';
 import { Injectable } from '@nestjs/common';
 import { Executable, PipelineContext } from '../../app.interface';
 import { PipelineService } from '../../pipeline.service';
-import { ReplicatorOptions } from './replicator.schema';
+import { IteratorOptions } from './iterator.schema';
 
 @Injectable()
-export class Replicator implements Executable {
+export class Iterator implements Executable {
   constructor(private readonly pipelineService: PipelineService) {}
 
-  async execute(input: NodeJS.ReadableStream, context: PipelineContext, options?: ReplicatorOptions) {
+  async execute(input: NodeJS.ReadableStream, context: PipelineContext, options?: IteratorOptions) {
     const passThrough = new PassThrough({ objectMode: true });
-    const replicate = async () => {
+    const iterate = async () => {
       try {
         for await (const chunk of input) {
           context[options.let] = chunk;
@@ -25,6 +25,6 @@ export class Replicator implements Executable {
       }
     };
 
-    await Promise.all([replicate(), finished(input)]);
+    await Promise.all([iterate(), finished(input)]);
   }
 }

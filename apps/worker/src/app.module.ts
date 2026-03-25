@@ -8,10 +8,10 @@ import { FileReader } from './operators/file-reader/file-reader';
 import { FileWriter } from './operators/file-writer/file-writer';
 import { Housekeeper } from './operators/housekeeper/housekeeper';
 import { Inspector } from './operators/inspector/inspector';
+import { Iterator } from './operators/iterator/iterator';
 import { LineSlicer } from './operators/line-slicer/line-slicer';
 import { Packer } from './operators/packer/packer';
 import { PathGenerator } from './operators/path-generator/path-generator';
-import { Replicator } from './operators/replicator/replicator';
 import { StdoutWriter } from './operators/stdout-writer/stdout-writer';
 import { Stringifier } from './operators/stringifier/stringifier';
 import { PipelineService } from './pipeline.service';
@@ -31,10 +31,10 @@ import { registerOperators } from './utils/register-operators';
       FileWriter,
       Housekeeper,
       Inspector,
+      Iterator,
       LineSlicer,
       Packer,
       PathGenerator,
-      Replicator,
       StdoutWriter,
       Stringifier,
     ),
