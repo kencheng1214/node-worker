@@ -12,6 +12,17 @@ async function bootstrap() {
         duckdb: { type: 'duckdb' },
       },
       pipeline: [
+        {
+          name: 'DuckDBTableInitializer',
+          options: {
+            connection: 'duckdb',
+            schema: {
+              value: 'VARCHAR',
+              label: 'VARCHAR',
+              group: 'VARCHAR',
+            },
+          },
+        },
         { name: 'PathGenerator', options: { pattern: ['*.csv'] } },
         {
           name: 'Iterator',

@@ -5,6 +5,7 @@ import { BroadcasterSchema } from './broadcaster/broadcaster.schema';
 import { CsvParserSchema } from './csv-parser/csv-parser.schema';
 import { DuckDBAppenderSchema } from './duckdb-appender/duckdb-appender.schema';
 import { DuckDBExecutorSchema } from './duckdb-executor/duckdb-executor.schema';
+import { DuckDBTableInitializerSchema } from './duckdb-table-initializer/duckdb-table-initializer.schema';
 import { FileReaderSchema } from './file-reader/file-reader.schema';
 import { FileWriterSchema } from './file-writer/file-writer.schema';
 import { HousekeeperSchema } from './housekeeper/housekeeper.schema';
@@ -22,6 +23,7 @@ export type Operator =
   | z.infer<typeof CsvParserSchema>
   | z.infer<typeof DuckDBAppenderSchema>
   | z.infer<typeof DuckDBExecutorSchema>
+  | z.infer<typeof DuckDBTableInitializerSchema>
   | z.infer<typeof FileReaderSchema>
   | z.infer<typeof FileWriterSchema>
   | z.infer<typeof HousekeeperSchema>
@@ -52,6 +54,7 @@ export const OperatorSchema: z.ZodType<Operator> = z.discriminatedUnion('name', 
   CsvParserSchema,
   DuckDBAppenderSchema,
   DuckDBExecutorSchema,
+  DuckDBTableInitializerSchema,
   FileReaderSchema,
   FileWriterSchema,
   HousekeeperSchema,

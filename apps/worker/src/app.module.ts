@@ -6,6 +6,7 @@ import { Broadcaster } from './operators/broadcaster/broadcaster';
 import { CsvParser } from './operators/csv-parser/csv-parser';
 import { DuckDBAppender } from './operators/duckdb-appender/duckdb-appender';
 import { DuckDBExecutor } from './operators/duckdb-executor/duckdb-executor';
+import { DuckDBTableInitializer } from './operators/duckdb-table-initializer/duckdb-table-initializer';
 import { FileReader } from './operators/file-reader/file-reader';
 import { FileWriter } from './operators/file-writer/file-writer';
 import { Housekeeper } from './operators/housekeeper/housekeeper';
@@ -31,6 +32,7 @@ import { registerOperators } from './utils/register-operators';
       CsvParser,
       DuckDBAppender,
       DuckDBExecutor,
+      DuckDBTableInitializer,
       FileReader,
       FileWriter,
       Housekeeper,
