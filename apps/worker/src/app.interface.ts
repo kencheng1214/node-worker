@@ -1,8 +1,10 @@
 import Handlebars from 'handlebars';
 import { z } from 'zod';
+import { ConnectionSchema } from './connections/connections.schema';
 import { OperatorSchema } from './operators/operators.schema';
 
 export const SpecificationSchema = z.object({
+  connections: z.record(z.string(), ConnectionSchema).optional(),
   pipeline: z.array(OperatorSchema),
 });
 

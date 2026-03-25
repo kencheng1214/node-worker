@@ -8,6 +8,9 @@ async function bootstrap() {
 
   await service.run(
     {
+      connections: {
+        duckdb: { type: 'duckdb' },
+      },
       pipeline: [
         { name: 'PathGenerator', options: { pattern: ['*.csv'] } },
         {
