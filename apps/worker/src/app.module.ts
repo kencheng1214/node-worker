@@ -12,6 +12,7 @@ import { Iterator } from './operators/iterator/iterator';
 import { LineSlicer } from './operators/line-slicer/line-slicer';
 import { Packer } from './operators/packer/packer';
 import { PathGenerator } from './operators/path-generator/path-generator';
+import { SqlExecutor } from './operators/sql-executor/sql-executor';
 import { StdoutWriter } from './operators/stdout-writer/stdout-writer';
 import { Stringifier } from './operators/stringifier/stringifier';
 import { PipelineService } from './pipeline.service';
@@ -35,6 +36,7 @@ import { registerOperators } from './utils/register-operators';
       LineSlicer,
       Packer,
       PathGenerator,
+      SqlExecutor,
       StdoutWriter,
       Stringifier,
     ),

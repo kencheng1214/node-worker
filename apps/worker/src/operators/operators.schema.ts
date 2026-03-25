@@ -11,6 +11,7 @@ import { IteratorSchema } from './iterator/iterator.schema';
 import { LineSlicerSchema } from './line-slicer/line-slicer.schema';
 import { PackerSchema } from './packer/packer.schema';
 import { PathGeneratorSchema } from './path-generator/path-generator.schema';
+import { SqlExecutorSchema } from './sql-executor/sql-executor.schema';
 import { StdoutWriterSchema } from './stdout-writer/stdout-writer.schema';
 import { StringifierSchema } from './stringifier/stringifier.schema';
 
@@ -25,6 +26,7 @@ export type Operator =
   | z.infer<typeof LineSlicerSchema>
   | z.infer<typeof PackerSchema>
   | z.infer<typeof PathGeneratorSchema>
+  | z.infer<typeof SqlExecutorSchema>
   | z.infer<typeof StdoutWriterSchema>
   | z.infer<typeof StringifierSchema>
   | {
@@ -54,6 +56,7 @@ export const OperatorSchema: z.ZodType<Operator> = z.discriminatedUnion('name', 
   LineSlicerSchema,
   PackerSchema,
   PathGeneratorSchema,
+  SqlExecutorSchema,
   StdoutWriterSchema,
   StringifierSchema,
 ]);
