@@ -13,6 +13,7 @@ export class AppService {
     const startedAt = dayjs();
     const context: PipelineContext = {
       startedAt: startedAt.toDate(),
+      connections: specification.connections,
       render: function (template, data) {
         const { render, ...$ } = this as PipelineContext;
 

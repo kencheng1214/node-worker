@@ -12,6 +12,7 @@ export type Specification = z.infer<typeof SpecificationSchema>;
 
 export interface PipelineContext {
   startedAt: Date;
+  connections?: Specification['connections'];
   render: <T = unknown>(template: Handlebars.TemplateDelegate, data?: T) => string;
   [key: string]: unknown;
 }
