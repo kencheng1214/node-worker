@@ -10,3 +10,5 @@ export const DuckDBConnectionSchema = z.object({
 });
 
 export const ConnectionSchema = z.discriminatedUnion('type', [DuckDBConnectionSchema]);
+
+export type Connection = z.infer<typeof ConnectionSchema>;

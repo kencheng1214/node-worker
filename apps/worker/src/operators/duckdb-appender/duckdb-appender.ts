@@ -6,7 +6,8 @@ import { DuckDBAppenderOptions } from './duckdb-appender.schema';
 @Injectable()
 export class DuckDBAppender implements Executable {
   async execute(input: NodeJS.ReadableStream, context: PipelineContext, options: DuckDBAppenderOptions) {
-    const instance = await DuckDBInstance.create(':memory:');
+    const connectionOptions = context.getConnectionOptions<'duckdb'>(options.connection);
+    const instance = await DuckDBInstance.create(connectionOptions.path);
     const connection = await instance.connect();
     const appender = await connection.createAppender(options.table);
   }

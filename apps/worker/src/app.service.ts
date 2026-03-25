@@ -14,8 +14,11 @@ export class AppService {
     const context: PipelineContext = {
       startedAt: startedAt.toDate(),
       connections: specification.connections,
+      getConnectionOptions: function (name) {
+        return (this as PipelineContext).connections?.[name]?.options ?? {};
+      },
       render: function (template, data) {
-        const { render, ...$ } = this as PipelineContext;
+        const { render, getConnectionOptions, ...$ } = this as PipelineContext;
 
         return template({ ...(data ?? {}), ...Object.fromEntries(args.map((arg, index) => [`$${++index}`, arg])), $ });
       },
