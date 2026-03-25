@@ -3,6 +3,7 @@ import { ArchiverSchema } from './archiver/archiver.schema';
 import { BatcherSchema } from './batcher/batcher.schema';
 import { BroadcasterSchema } from './broadcaster/broadcaster.schema';
 import { CsvParserSchema } from './csv-parser/csv-parser.schema';
+import { DuckDBAppenderSchema } from './duckdb-appender/duckdb-appender.schema';
 import { DuckDBExecutorSchema } from './duckdb-executor/duckdb-executor.schema';
 import { FileReaderSchema } from './file-reader/file-reader.schema';
 import { FileWriterSchema } from './file-writer/file-writer.schema';
@@ -19,6 +20,7 @@ export type Operator =
   | z.infer<typeof ArchiverSchema>
   | z.infer<typeof BatcherSchema>
   | z.infer<typeof CsvParserSchema>
+  | z.infer<typeof DuckDBAppenderSchema>
   | z.infer<typeof DuckDBExecutorSchema>
   | z.infer<typeof FileReaderSchema>
   | z.infer<typeof FileWriterSchema>
@@ -48,6 +50,7 @@ export const OperatorSchema: z.ZodType<Operator> = z.discriminatedUnion('name', 
   BatcherSchema,
   BroadcasterSchema,
   CsvParserSchema,
+  DuckDBAppenderSchema,
   DuckDBExecutorSchema,
   FileReaderSchema,
   FileWriterSchema,

@@ -7,7 +7,7 @@ import { DuckDBExecutorOptions } from './duckdb-executor.schema';
 
 @Injectable()
 export class DuckDBExecutor implements Executable {
-  async execute(input: NodeJS.ReadableStream, context: PipelineContext, options: DuckDBExecutorOptions) {
+  async execute(input: unknown, context: PipelineContext, options: DuckDBExecutorOptions) {
     const templates = compile(options, 'sql');
     const instance = await DuckDBInstance.create(':memory:');
     const connection = await instance.connect();

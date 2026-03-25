@@ -4,6 +4,7 @@ import { Archiver } from './operators/archiver/archiver';
 import { Batcher } from './operators/batcher/batcher';
 import { Broadcaster } from './operators/broadcaster/broadcaster';
 import { CsvParser } from './operators/csv-parser/csv-parser';
+import { DuckDBAppender } from './operators/duckdb-appender/duckdb-appender';
 import { DuckDBExecutor } from './operators/duckdb-executor/duckdb-executor';
 import { FileReader } from './operators/file-reader/file-reader';
 import { FileWriter } from './operators/file-writer/file-writer';
@@ -28,6 +29,7 @@ import { registerOperators } from './utils/register-operators';
       Batcher,
       Broadcaster,
       CsvParser,
+      DuckDBAppender,
       DuckDBExecutor,
       FileReader,
       FileWriter,
