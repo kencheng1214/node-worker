@@ -15,14 +15,13 @@ export class AppService {
       startedAt: startedAt.toDate(),
       connections: specification.connections,
       render: function (template, data) {
-        const { render, getConnectionOptions, ...$ } = this as PipelineContext;
+        const { render, ...$ } = this as PipelineContext;
 
         return template({ ...(data ?? {}), ...Object.fromEntries(args.map((arg, index) => [`$${++index}`, arg])), $ });
       },
     };
 
     this.logger.debug(context);
-    if (specification.connections) this.logger.debug(specification.connections);
     await this.pipelineService.runPipeline(specification.pipeline, undefined, context);
   }
 }
