@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { Injectable, Logger } from '@nestjs/common';
 import { DuckDBInstance } from '@duckdb/node-api';
 import { Executable, PipelineContext } from '../../app.interface';
+import { getConnectionOptions } from '../../utils/get-connection-options';
 import { DuckDBTableInitializerOptions } from './duckdb-table-initializer.schema';
 
 @Injectable()
@@ -9,7 +10,7 @@ export class DuckDBTableInitializer implements Executable {
   private readonly logger = new Logger(DuckDBTableInitializer.name);
 
   async execute(input: unknown, context: PipelineContext, options: DuckDBTableInitializerOptions) {
-    const connectionOptions = context.getConnectionOptions<'duckdb'>(options.connection);
+    const connectionOptions = getConnectionOptions<'duckdb'>(context, options.connection);
     const instance = await DuckDBInstance.create(connectionOptions.path);
     const connection = await instance.connect();
     const sql = this.buildCreateTableStatement(options);

@@ -13,7 +13,6 @@ export type Specification = z.infer<typeof SpecificationSchema>;
 export interface PipelineContext {
   startedAt: Date;
   connections?: Specification['connections'];
-  getConnectionOptions: <T extends Connection['type']>(name: string) => Extract<Connection, { type: T }>['options'];
   render: <T = unknown>(template: Handlebars.TemplateDelegate, data?: T) => string;
   [key: string]: unknown;
 }

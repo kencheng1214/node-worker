@@ -14,9 +14,6 @@ export class AppService {
     const context: PipelineContext = {
       startedAt: startedAt.toDate(),
       connections: specification.connections,
-      getConnectionOptions: function (name) {
-        return (this as PipelineContext).connections?.[name]?.options ?? {};
-      },
       render: function (template, data) {
         const { render, getConnectionOptions, ...$ } = this as PipelineContext;
 
@@ -25,6 +22,7 @@ export class AppService {
     };
 
     this.logger.debug(context);
+    if (specification.connections) this.logger.debug(specification.connections);
     await this.pipelineService.runPipeline(specification.pipeline, undefined, context);
   }
 }
