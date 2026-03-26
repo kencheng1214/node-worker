@@ -6,6 +6,8 @@ export const DuckDBTableInitializerSchema = z.object({
     connection: z.string(),
     table: z.string().optional(),
     schema: z.record(z.string(), z.string()),
+    truncate: z.boolean().optional(),
+    temporary: z.boolean().optional(),
   }),
 });
 
