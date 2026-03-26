@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 import { z } from 'zod';
-import { Connection, ConnectionSchema } from './connections/connections.schema';
+import { ConnectionSchema } from './connections/connections.schema';
 import { OperatorSchema } from './operators/operators.schema';
 
 export const SpecificationSchema = z.object({
@@ -13,6 +13,7 @@ export type Specification = z.infer<typeof SpecificationSchema>;
 export interface PipelineContext {
   startedAt: Date;
   connections?: Specification['connections'];
+  templates?: Record<string, HandlebarsTemplateDelegate | HandlebarsTemplateDelegate[]>;
   render: <T = unknown>(template: Handlebars.TemplateDelegate, data?: T) => string;
   [key: string]: unknown;
 }

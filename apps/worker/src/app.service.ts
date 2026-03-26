@@ -14,6 +14,7 @@ export class AppService {
     const context: PipelineContext = {
       startedAt: startedAt.toDate(),
       connections: specification.connections,
+      templates: {},
       render: function (template, data) {
         const { render, ...$ } = this as PipelineContext;
 

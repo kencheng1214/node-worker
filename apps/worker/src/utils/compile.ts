@@ -1,5 +1,6 @@
 import dotProp from 'dot-prop';
 import Handlebars from 'handlebars';
+import { PipelineContext } from '../app.interface';
 
 export function compile(input: string): ReturnType<typeof Handlebars.compile>;
 export function compile(
@@ -14,4 +15,15 @@ export function compile(
   if (!inputOrOptions) return {};
 
   return Object.fromEntries(paths.map((path) => [path, Handlebars.compile(dotProp.get(inputOrOptions, path))]));
+}
+
+export function compile2(context: PipelineContext, options = {}, ...paths: string[]) {
+  for (const path of paths) {
+    const value = dotProp.get(options, path);
+
+    if (!value) continue;
+    context.templates[path] = Array.isArray(value)
+      ? value.map((value) => Handlebars.compile(value))
+      : Handlebars.compile(value);
+  }
 }

@@ -7,7 +7,10 @@ export class PipelineService {
   constructor(private readonly moduleRef: ModuleRef) {}
 
   async runPipeline(pipeline: Specification['pipeline'], input = undefined, context: PipelineContext) {
-    for (const operator of pipeline)
-      input = await this.moduleRef.get<Executable>(operator.name).execute(input, context, operator.options);
+    for (const operator of pipeline) {
+      const executable = this.moduleRef.get<Executable>(operator.name);
+
+      input = await executable.execute(input, context, operator.options);
+    }
   }
 }
