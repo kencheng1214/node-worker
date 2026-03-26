@@ -1,6 +1,6 @@
 import { ModuleRef } from '@nestjs/core';
 import { Injectable } from '@nestjs/common';
-import { Executable, PipelineContext, Specification } from './app.interface';
+import { Executable, PipelineContext, Specification } from '../app.interface';
 
 @Injectable()
 export class PipelineService {

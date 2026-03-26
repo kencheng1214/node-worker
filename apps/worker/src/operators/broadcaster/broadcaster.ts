@@ -2,7 +2,7 @@ import { PassThrough } from 'node:stream';
 import { finished } from 'node:stream/promises';
 import { Injectable } from '@nestjs/common';
 import { Executable, PipelineContext } from '../../app.interface';
-import { PipelineService } from '../../pipeline.service';
+import { PipelineService } from '../../services/pipeline.service';
 import { BroadcasterOptions } from './broadcaster.schema';
 
 @Injectable()

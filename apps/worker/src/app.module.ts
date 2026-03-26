@@ -17,7 +17,7 @@ import { Packer } from './operators/packer/packer';
 import { PathGenerator } from './operators/path-generator/path-generator';
 import { StdoutWriter } from './operators/stdout-writer/stdout-writer';
 import { Stringifier } from './operators/stringifier/stringifier';
-import { PipelineService } from './pipeline.service';
+import { PipelineService } from './services/pipeline.service';
 import { registerHandlebars } from './utils/register-handlebars';
 import { registerOperators } from './utils/register-operators';
 

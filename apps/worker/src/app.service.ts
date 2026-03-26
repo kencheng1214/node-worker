@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import dayjs from 'dayjs';
 import { PipelineContext, Specification } from './app.interface';
-import { PipelineService } from './pipeline.service';
+import { PipelineService } from './services/pipeline.service';
 
 @Injectable()
 export class AppService {
