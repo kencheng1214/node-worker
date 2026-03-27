@@ -17,9 +17,8 @@ async function bootstrap() {
           options: {
             connection: 'duckdb',
             schema: {
-              value: 'VARCHAR',
               label: 'VARCHAR',
-              group: 'VARCHAR',
+              value: 'VARCHAR',
             },
           },
         },
