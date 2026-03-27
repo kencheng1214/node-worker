@@ -12,7 +12,8 @@ export class Stringifier implements Executable {
 
     return input.pipe(
       Transform.from(async function* (source: AsyncIterable<Buffer>) {
-        for await (const value of source) yield (options?.format ? FORMAT_TEMPLATE() : JSON.stringify(value)) + EOL;
+        for await (const value of source)
+          yield (options?.format ? FORMAT_TEMPLATE(value) : JSON.stringify(value)) + EOL;
       }),
     );
   }
