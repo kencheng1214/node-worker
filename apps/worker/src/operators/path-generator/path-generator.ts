@@ -7,10 +7,8 @@ import { PathGeneratorOptions } from './path-generator.schema';
 @Injectable()
 export class PathGenerator implements Executable {
   execute(input: unknown, context: PipelineContext, options: PathGeneratorOptions) {
-    const patterns = (Array.isArray(options.pattern) ? options.pattern : [options.pattern]).map((pattern) =>
-      context.render(compile(pattern)),
-    );
+    const { PATTERN_TEMPLATE } = compile(context, options, ['pattern']);
 
-    return globStream(patterns);
+    return globStream(PATTERN_TEMPLATE());
   }
 }

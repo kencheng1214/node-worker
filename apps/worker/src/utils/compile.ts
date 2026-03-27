@@ -20,10 +20,10 @@ export function compile<Options extends Record<string, unknown>, const Paths ext
 
   for (const path of paths) {
     const input = dotProp.get(options, path);
-
-    if (!input) continue;
-
-    const template = Array.isArray(input) ? input.map((value) => Handlebars.compile(value)) : Handlebars.compile(input);
+    const template =
+      Array.isArray(input) && input.length > 0
+        ? input.map((value) => Handlebars.compile(value))
+        : Handlebars.compile(input || '');
     const { args, ...$ } = context;
     const key = `${path.toUpperCase()}_TEMPLATE` as keyof Output<Options, Paths>;
     const value = Array.isArray(template)
