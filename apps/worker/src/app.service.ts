@@ -9,17 +9,12 @@ export class AppService {
 
   constructor(private readonly pipelineService: PipelineService) {}
 
-  async run(specification: Specification, args: string[]) {
+  async run(specification: Specification, args: string[] = []) {
     const startedAt = dayjs();
     const context: PipelineContext = {
       startedAt: startedAt.toDate(),
       connections: specification.connections,
-      templates: {},
-      render: function (template, data) {
-        const { render, ...$ } = this as PipelineContext;
-
-        return template({ ...(data ?? {}), ...Object.fromEntries(args.map((arg, index) => [`$${++index}`, arg])), $ });
-      },
+      args: Object.fromEntries(args.map((arg, index) => [`$${++index}`, arg])),
     };
 
     this.logger.debug(context);

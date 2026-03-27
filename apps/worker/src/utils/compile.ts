@@ -24,10 +24,11 @@ export function compile<Options extends Record<string, unknown>, const Paths ext
     if (!input) continue;
 
     const template = Array.isArray(input) ? input.map((value) => Handlebars.compile(value)) : Handlebars.compile(input);
+    const { args, ...$ } = context;
     const key = `${path.toUpperCase()}_TEMPLATE` as keyof Output<Options, Paths>;
     const value = Array.isArray(template)
-      ? (data?: any) => template.map((template) => template({ ...data, $: context }))
-      : (data?: any) => template({ ...data, $: context });
+      ? (data?: any) => template.map((template) => template({ ...data, ...args, $ }))
+      : (data?: any) => template({ ...data, ...args, $ });
 
     output[key] = value as Output<Options, Paths>[typeof key];
   }

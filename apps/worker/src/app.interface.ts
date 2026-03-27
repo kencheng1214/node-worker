@@ -13,6 +13,7 @@ export type Specification = z.infer<typeof SpecificationSchema>;
 export interface PipelineContext {
   startedAt: Date;
   connections?: Specification['connections'];
+  args: Record<`$${number}`, string>;
   [key: string]: unknown;
 }
 
