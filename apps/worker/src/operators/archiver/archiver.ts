@@ -2,12 +2,10 @@ import { createWriteStream } from 'node:fs';
 import { Injectable } from '@nestjs/common';
 import archiver from 'archiver';
 import { Executable, PipelineContext } from '../../app.interface';
-import { TemplatableOptions } from '../../decorators/templatable-options.decorator';
 import { compile } from '../../utils/compile';
 import { ArchiverOptions } from './archiver.schema';
 
 @Injectable()
-@TemplatableOptions('path', 'filename')
 export class Archiver implements Executable {
   async execute(input: NodeJS.ReadableStream, context: PipelineContext, options?: ArchiverOptions) {
     const templates = compile(options, 'path', 'filename');

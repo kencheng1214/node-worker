@@ -2,28 +2,35 @@ import dotProp from 'dot-prop';
 import Handlebars from 'handlebars';
 import { PipelineContext } from '../app.interface';
 
-export function compile(input: string): ReturnType<typeof Handlebars.compile>;
-export function compile(
-  options: Record<string, unknown>,
-  ...paths: string[]
-): Record<string, ReturnType<typeof Handlebars.compile>>;
-export function compile(
-  inputOrOptions: string | Record<string, unknown>,
-  ...paths: string[]
-): ReturnType<typeof Handlebars.compile> | Record<string, ReturnType<typeof Handlebars.compile>> {
-  if (typeof inputOrOptions === 'string') return Handlebars.compile(inputOrOptions);
-  if (!inputOrOptions) return {};
+type RenderFunction<Options, Key extends string> =
+  NonNullable<Options[Key extends keyof Options ? Key : never]> extends readonly string[]
+    ? (data?: any) => string[]
+    : (data?: any) => string;
 
-  return Object.fromEntries(paths.map((path) => [path, Handlebars.compile(dotProp.get(inputOrOptions, path))]));
-}
+export type Output<Options extends Record<string, unknown>, Paths extends readonly string[]> = Partial<{
+  [Key in Paths[number] as `${Uppercase<Key>}_TEMPLATE`]: RenderFunction<Options, Key>;
+}>;
 
-export function compile2(context: PipelineContext, options = {}, ...paths: string[]) {
+export function compile<Options extends Record<string, unknown>, const Paths extends readonly string[]>(
+  context: PipelineContext,
+  options: Options,
+  paths: Paths,
+): Output<Options, Paths> {
+  const output: Output<Options, Paths> = {};
+
   for (const path of paths) {
-    const value = dotProp.get(options, path);
+    const input = dotProp.get(options, path);
 
-    if (!value) continue;
-    context.templates[path] = Array.isArray(value)
-      ? value.map((value) => Handlebars.compile(value))
-      : Handlebars.compile(value);
+    if (!input) continue;
+
+    const template = Array.isArray(input) ? input.map((value) => Handlebars.compile(value)) : Handlebars.compile(input);
+    const key = `${path.toUpperCase()}_TEMPLATE` as keyof Output<Options, Paths>;
+    const value = Array.isArray(template)
+      ? (data?: any) => template.map((template) => template({ ...data, $: context }))
+      : (data?: any) => template({ ...data, $: context });
+
+    output[key] = value as Output<Options, Paths>[typeof key];
   }
+
+  return output;
 }
