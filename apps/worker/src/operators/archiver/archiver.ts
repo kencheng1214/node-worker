@@ -8,15 +8,15 @@ import { ArchiverOptions } from './archiver.schema';
 @Injectable()
 export class Archiver implements Executable {
   async execute(input: NodeJS.ReadableStream, context: PipelineContext, options?: ArchiverOptions) {
-    const templates = compile(options, 'path', 'filename');
-    const writeStream = createWriteStream(context.render(templates.path));
+    const { PATH_TEMPLATE, FILENAME_TEMPLATE } = compile(context, options, ['path', 'filename']);
+    const writeStream = createWriteStream(PATH_TEMPLATE());
     const archive = archiver(options?.format ?? 'zip');
     let index = 0;
 
     archive.pipe(writeStream);
     for await (const chunk of input)
       archive.append(chunk, {
-        name: options.filename ? context.render(templates.filename, { index: ++index }) : String(++index),
+        name: options.filename ? FILENAME_TEMPLATE({ index: ++index }) : String(++index),
       });
     await archive.finalize();
 

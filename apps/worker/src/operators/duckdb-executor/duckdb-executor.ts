@@ -9,11 +9,11 @@ import { DuckDBExecutorOptions } from './duckdb-executor.schema';
 @Injectable()
 export class DuckDBExecutor implements Executable {
   async execute(input: unknown, context: PipelineContext, options: DuckDBExecutorOptions) {
-    const templates = compile(options, 'sql');
+    const { SQL_TEMPLATE } = compile(context, options, ['sql']);
     const connectionOptions = getConnectionOptions<'duckdb'>(context, options.connection);
     const instance = await DuckDBInstance.create(connectionOptions.path);
     const connection = await instance.connect();
-    const result = await connection.stream(context.render(templates.sql));
+    const result = await connection.stream(SQL_TEMPLATE());
 
     return Readable.from(result.yieldRows());
   }

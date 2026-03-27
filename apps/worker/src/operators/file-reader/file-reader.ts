@@ -7,8 +7,8 @@ import { FileReaderOptions } from './file-reader.schema';
 @Injectable()
 export class FileReader implements Executable {
   execute(input: unknown, context: PipelineContext, options?: FileReaderOptions) {
-    const templates = compile(options, 'path');
+    const { PATH_TEMPLATE } = compile(context, options, ['path']);
 
-    return createReadStream(context.render(templates.path));
+    return createReadStream(PATH_TEMPLATE());
   }
 }
